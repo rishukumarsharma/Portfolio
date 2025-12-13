@@ -1,0 +1,218 @@
+[
+    {
+        "id": "enterprise-crm-redesign",
+        "title": "Enterprise CRM Redesign",
+        "category": "CRM",
+        "thumbnail": "/images/projects/crm-thumb.jpg",
+        "description": "Overhauling a legacy CRM system to improve sales team productivity and customer insights",
+        "tags": [
+            "UX Research",
+            "Design System",
+            "B2B",
+            "Enterprise"
+        ],
+        "behanceUrl": "https://behance.net/gallery/enterprise-crm",
+        "featured": true,
+        "year": "2024",
+        "metrics": {
+            "userIncrease": "40%",
+            "engagementBoost": "2.5x",
+            "timeReduction": "35%"
+        },
+        "caseStudy": {
+            "challenge": "Sales teams struggled with a cluttered interface, leading to low adoption rates and missed opportunities. The system lacked modern features and had poor mobile support.",
+            "solution": "Conducted extensive user research with 50+ sales professionals, created a unified design system, and implemented a progressive disclosure pattern to reduce cognitive load.",
+            "impact": "Reduced task completion time by 35%, increased daily active users by 40%, and improved customer satisfaction scores from 3.2 to 4.7/5.",
+            "images": [
+                "/images/projects/crm-research.jpg",
+                "/images/projects/crm-wireframes.jpg",
+                "/images/projects/crm-final.jpg"
+            ],
+            "testimonial": {
+                "quote": "The new CRM has transformed how our team works. Tasks that took 10 minutes now take 3.",
+                "author": "Sarah Johnson",
+                "role": "VP of Sales, TechCorp"
+            }
+        }
+    },
+    {
+        "id": "fintech-saas-dashboard",
+        "title": "FinTech SaaS Dashboard",
+        "category": "SaaS",
+        "thumbnail": "/images/projects/fintech-thumb.jpg",
+        "description": "Building an intuitive dashboard for financial analytics and automated reporting",
+        "tags": [
+            "SaaS",
+            "Fintech",
+            "Data Visualization",
+            "Analytics"
+        ],
+        "behanceUrl": "https://behance.net/gallery/fintech-saas",
+        "featured": true,
+        "year": "2024",
+        "metrics": {
+            "userIncrease": "125%",
+            "engagementBoost": "3.2x",
+            "revenueGrowth": "85%"
+        },
+        "caseStudy": {
+            "challenge": "Complex financial data needed to be presented in a way that was accessible to non-technical users while maintaining depth for power users.",
+            "solution": "Designed a progressive complexity system with smart defaults, customizable widgets, and AI-powered insights that surface automatically.",
+            "impact": "User base grew 125% in 6 months, engagement increased 3.2x, and customer-reported productivity improved by 60%.",
+            "images": [
+                "/images/projects/fintech-persona.jpg",
+                "/images/projects/fintech-flows.jpg",
+                "/images/projects/fintech-dashboard.jpg"
+            ],
+            "testimonial": {
+                "quote": "This dashboard gives us insights we never knew we needed. It's become essential to our workflow.",
+                "author": "Michael Chen",
+                "role": "CFO, StartupFin"
+            }
+        }
+    },
+    {
+        "id": "ecommerce-landing-redesign",
+        "title": "E-commerce Landing Page",
+        "category": "Landing Page",
+        "thumbnail": "/images/projects/ecom-thumb.jpg",
+        "description": "High-converting landing page design that increased conversions by 180%",
+        "tags": [
+            "Conversion Optimization",
+            "A/B Testing",
+            "E-commerce",
+            "Responsive"
+        ],
+        "behanceUrl": "https://behance.net/gallery/ecommerce-landing",
+        "featured": true,
+        "year": "2024",
+        "metrics": {
+            "conversionIncrease": "180%",
+            "bounceReduction": "45%",
+            "averageOrderValue": "+32%"
+        },
+        "caseStudy": {
+            "challenge": "The original landing page had a 2.1% conversion rate and high bounce rate. Users weren't understanding the value proposition quickly enough.",
+            "solution": "Implemented F-pattern layout with clear hero section, social proof above the fold, and strategically placed CTAs based on scroll depth analysis.",
+            "impact": "Conversion rate jumped from 2.1% to 5.9%, bounce rate decreased by 45%, and average order value increased by 32%.",
+            "images": [
+                "/images/projects/ecom-heatmap.jpg",
+                "/images/projects/ecom-iterations.jpg",
+                "/images/projects/ecom-final.jpg"
+            ],
+            "testimonial": {
+                "quote": "The redesign paid for itself in the first week. Our revenue has tripled since launch.",
+                "author": "Emily Rodriguez",
+                "role": "Founder, GreenLeaf Co"
+            }
+        }
+    },
+    {
+        "id": "healthcare-patient-portal",
+        "title": "Healthcare Patient Portal",
+        "category": "SaaS",
+        "thumbnail": "/images/projects/health-thumb.jpg",
+        "description": "HIPAA-compliant patient portal focusing on accessibility and ease of use",
+        "tags": [
+            "Healthcare",
+            "Accessibility",
+            "WCAG 2.1",
+            "Patient Experience"
+        ],
+        "behanceUrl": "https://behance.net/gallery/healthcare-portal",
+        "featured": false,
+        "year": "2023",
+        "metrics": {
+            "accessibilityScore": "98/100",
+            "patientSatisfaction": "4.8/5",
+            "supportTickets": "-67%"
+        },
+        "caseStudy": {
+            "challenge": "Patients, especially elderly users, found the existing portal confusing and inaccessible. WCAG compliance was minimal.",
+            "solution": "Conducted usability testing with diverse age groups, implemented WCAG 2.1 AAA standards, and created clear information hierarchy.",
+            "impact": "Accessibility score reached 98/100, patient satisfaction increased to 4.8/5, and support tickets decreased by 67%.",
+            "images": [
+                "/images/projects/health-user-testing.jpg",
+                "/images/projects/health-accessibility.jpg",
+                "/images/projects/health-portal.jpg"
+            ],
+            "testimonial": {
+                "quote": "Finally, a healthcare portal my parents can actually use. The impact on patient engagement has been remarkable.",
+                "author": "Dr. James Wilson",
+                "role": "Chief Medical Officer, HealthFirst"
+            }
+        }
+    },
+    {
+        "id": "ai-productivity-tool",
+        "title": "AI Productivity Assistant",
+        "category": "SaaS",
+        "thumbnail": "/images/projects/ai-thumb.jpg",
+        "description": "AI-powered task management and productivity platform with natural language interface",
+        "tags": [
+            "AI/ML",
+            "Productivity",
+            "Natural Language",
+            "Automation"
+        ],
+        "behanceUrl": "https://behance.net/gallery/ai-productivity",
+        "featured": true,
+        "year": "2024",
+        "metrics": {
+            "taskCompletion": "+55%",
+            "userRetention": "89%",
+            "dailyActiveUsers": "2.8x"
+        },
+        "caseStudy": {
+            "challenge": "Users felt overwhelmed by traditional task managers. Natural language AI needed to feel intuitive, not gimmicky.",
+            "solution": "Designed a conversational interface that learns user preferences, with smart task breakdowns and context-aware suggestions.",
+            "impact": "Task completion rates increased 55%, retention hit 89%, and DAU grew 2.8x in 3 months.",
+            "images": [
+                "/images/projects/ai-research.jpg",
+                "/images/projects/ai-prototypes.jpg",
+                "/images/projects/ai-interface.jpg"
+            ],
+            "testimonial": {
+                "quote": "It's like having a personal assistant who knows exactly what I need before I do.",
+                "author": "Lisa Zhang",
+                "role": "Product Manager, TechFlow"
+            }
+        }
+    },
+    {
+        "id": "real-estate-platform",
+        "title": "Real Estate Marketplace",
+        "category": "Landing Page",
+        "thumbnail": "/images/projects/realestate-thumb.jpg",
+        "description": "Modern property listing platform with immersive 3D tours and AR features",
+        "tags": [
+            "Real Estate",
+            "3D/AR",
+            "Mobile-First",
+            "Marketplace"
+        ],
+        "behanceUrl": "https://behance.net/gallery/real-estate",
+        "featured": false,
+        "year": "2023",
+        "metrics": {
+            "leadGeneration": "+210%",
+            "timeOnSite": "+145%",
+            "mobileConversion": "+95%"
+        },
+        "caseStudy": {
+            "challenge": "Property listings looked dated and didn't showcase spaces effectively. Mobile experience was poor.",
+            "solution": "Integrated 3D virtual tours, AR room visualization, and optimized mobile-first search with intelligent filters.",
+            "impact": "Lead generation increased 210%, average time on site jumped 145%, mobile conversions up 95%.",
+            "images": [
+                "/images/projects/realestate-ar.jpg",
+                "/images/projects/realestate-mobile.jpg",
+                "/images/projects/realestate-desktop.jpg"
+            ],
+            "testimonial": {
+                "quote": "Our clients love the virtual tours. We're closing deals 40% faster than before.",
+                "author": "Robert Martinez",
+                "role": "Broker, Prime Properties"
+            }
+        }
+    }
+]
