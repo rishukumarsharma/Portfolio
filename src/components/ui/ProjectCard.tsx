@@ -1,6 +1,8 @@
 import { useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '../../utils/cn';
+import { OptimizedImage } from './OptimizedImage';
+import { getProjectPlaceholder } from '../../utils/placeholders';
 
 export interface ProjectCardProps {
     /** Project title */
@@ -50,7 +52,6 @@ export const ProjectCard = ({
     subtitle,
     description,
     image,
-    accentColor = '#d946ef',
     tags = [],
     year,
     category,
@@ -62,7 +63,6 @@ export const ProjectCard = ({
     aspectRatio = 'video',
 }: ProjectCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
-    const [imageError, setImageError] = useState(false);
 
     const CardWrapper = ({ children }: { children: ReactNode }) => {
         if (href) {
@@ -99,30 +99,18 @@ export const ProjectCard = ({
             >
                 {/* Image Container */}
                 <div className={cn('relative overflow-hidden bg-neutral-800', aspectStyles[aspectRatio])}>
-                    {/* Image or Gradient Placeholder */}
-                    {image && !imageError ? (
-                        <motion.img
-                            src={image}
+                    {/* Use OptimizedImage with smart placeholder fallback */}
+                    <motion.div
+                        className="w-full h-full"
+                        animate={{ scale: isHovered ? 1.05 : 1 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    >
+                        <OptimizedImage
+                            src={image || getProjectPlaceholder(category)}
                             alt={title}
-                            className="w-full h-full object-cover"
-                            onError={() => setImageError(true)}
-                            animate={{ scale: isHovered ? 1.05 : 1 }}
-                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        />
-                    ) : (
-                        <motion.div
                             className="w-full h-full"
-                            style={{
-                                background: `linear-gradient(135deg, ${accentColor}30, ${accentColor}10)`,
-                            }}
-                            animate={{ scale: isHovered ? 1.05 : 1 }}
-                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <span className="text-neutral-600 text-sm">Preview</span>
-                            </div>
-                        </motion.div>
-                    )}
+                        />
+                    </motion.div>
 
                     {/* Hover Overlay */}
                     <motion.div

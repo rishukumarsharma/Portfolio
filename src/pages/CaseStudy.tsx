@@ -12,21 +12,59 @@ import projectsData from '../data/projects.json';
 interface CaseStudyProject {
     id: string;
     title: string;
+    subtitle?: string;
     category: string;
     description: string;
     tags: string[];
     year: string;
+    color?: string;
     metrics?: Record<string, string>;
     caseStudy?: {
+        overview?: {
+            role: string;
+            timeline: string;
+            team?: string;
+            deliverables?: string[];
+        };
         challenge: string;
+        problemDetails?: {
+            keyIssues?: string[];
+            whyItMatters?: string;
+            userPainPoints?: string[];
+        };
+        users?: {
+            primaryUsers?: string;
+            constraints?: string[];
+        };
+        process?: {
+            research?: string;
+            keyInsights?: string[];
+            designDecisions?: Array<{
+                decision: string;
+                rationale: string;
+                tradeoff: string;
+            }>;
+        };
         solution: string;
+        solutionDetails?: {
+            coreFeatures?: string[];
+            designSystem?: string;
+            technicalOptimizations?: string;
+            technicalImplementation?: string;
+            accessibilityFeatures?: string;
+            aiExplainability?: string;
+        };
         impact: string;
-        images?: string[];
         testimonial?: {
             quote: string;
             author: string;
             role: string;
         };
+        learnings?: {
+            whatWorked?: string[];
+            whatIWouldImprove?: string[];
+        };
+        images?: string[];
     };
 }
 
@@ -94,6 +132,11 @@ export const CaseStudy = () => {
                         transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                     >
                         <H1 className="mb-4">{project.title}</H1>
+                        {project.subtitle && (
+                            <Body size="lg" className="text-accent-400 mb-4">
+                                {project.subtitle}
+                            </Body>
+                        )}
                         <Body size="lg" className="text-neutral-300 max-w-3xl">
                             {project.description}
                         </Body>
@@ -106,7 +149,7 @@ export const CaseStudy = () => {
                                 <CountUpMetric
                                     key={key}
                                     value={value}
-                                    label={key.replace(/([A-Z])/g, ' $1').trim()}
+                                    label={key}
                                     delay={0.8 + index * 0.1}
                                     className="p-6 bg-neutral-900/60 backdrop-blur-sm rounded-xl border border-neutral-800"
                                 />
@@ -116,150 +159,408 @@ export const CaseStudy = () => {
                 </Container>
             </ParallaxImage>
 
-            {/* Overview Section */}
-            {caseStudy && (
+            {/* Project Overview Section */}
+            {caseStudy?.overview && (
                 <section className="py-24 bg-neutral-900">
                     <Container>
                         <div className="max-w-4xl mx-auto">
                             <SectionReveal animation="fadeUp">
                                 <Caption label accent className="mb-4 block">
-                                    Overview
+                                    Project Overview
                                 </Caption>
-                                <H2 className="mb-16">Project Context</H2>
+                                <H2 className="mb-16">Role & Context</H2>
                             </SectionReveal>
 
-                            <div className="grid md:grid-cols-2 gap-12">
+                            <div className="grid md:grid-cols-3 gap-8">
                                 <SectionReveal animation="fadeUp" delay={0.1}>
                                     <div>
-                                        <H3 className="text-2xl mb-4">The Challenge</H3>
-                                        <Body className="text-neutral-300">{caseStudy.challenge}</Body>
+                                        <Caption className="mb-2 text-neutral-500">My Role</Caption>
+                                        <Body className="text-neutral-200">{caseStudy.overview.role}</Body>
                                     </div>
                                 </SectionReveal>
 
                                 <SectionReveal animation="fadeUp" delay={0.2}>
                                     <div>
-                                        <H3 className="text-2xl mb-4">The Solution</H3>
-                                        <Body className="text-neutral-300">{caseStudy.solution}</Body>
-                                    </div>
-                                </SectionReveal>
-                            </div>
-
-                            {/* Role & Timeline */}
-                            <div className="grid md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-neutral-800">
-                                <SectionReveal animation="fadeUp" delay={0.3}>
-                                    <div>
-                                        <Caption className="mb-2 text-neutral-500">My Role</Caption>
-                                        <Body className="text-neutral-200">
-                                            Lead UX Designer
-                                        </Body>
-                                    </div>
-                                </SectionReveal>
-
-                                <SectionReveal animation="fadeUp" delay={0.4}>
-                                    <div>
                                         <Caption className="mb-2 text-neutral-500">Timeline</Caption>
-                                        <Body className="text-neutral-200">{project.year}</Body>
+                                        <Body className="text-neutral-200">{caseStudy.overview.timeline}</Body>
                                     </div>
                                 </SectionReveal>
 
-                                <SectionReveal animation="fadeUp" delay={0.5}>
+                                <SectionReveal animation="fadeUp" delay={0.3}>
                                     <div>
                                         <Caption className="mb-2 text-neutral-500">Category</Caption>
                                         <Body className="text-neutral-200">{project.category}</Body>
                                     </div>
                                 </SectionReveal>
                             </div>
+
+                            {caseStudy.overview.team && (
+                                <SectionReveal animation="fadeUp" delay={0.4}>
+                                    <div className="mt-8 p-6 bg-neutral-800/50 rounded-xl border border-neutral-700">
+                                        <Caption className="mb-2 text-neutral-500">Team</Caption>
+                                        <Body className="text-neutral-200">{caseStudy.overview.team}</Body>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {caseStudy.overview.deliverables && caseStudy.overview.deliverables.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.5}>
+                                    <div className="mt-8">
+                                        <Caption className="mb-4 text-neutral-500">Key Deliverables</Caption>
+                                        <div className="flex flex-wrap gap-2">
+                                            {caseStudy.overview.deliverables.map((deliverable) => (
+                                                <span
+                                                    key={deliverable}
+                                                    className="px-3 py-1.5 text-sm bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700"
+                                                >
+                                                    {deliverable}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SectionReveal>
+                            )}
+                        </div>
+                    </Container>
+                </section>
+            )}
+
+            {/* Problem Section */}
+            {caseStudy && (
+                <section className="py-24 bg-neutral-950">
+                    <Container>
+                        <div className="max-w-4xl mx-auto">
+                            <SectionReveal animation="fadeUp">
+                                <Caption label accent className="mb-4 block">
+                                    The Problem
+                                </Caption>
+                                <H2 className="mb-16">Understanding the Challenge</H2>
+                            </SectionReveal>
+
+                            <SectionReveal animation="fadeUp" delay={0.1}>
+                                <div className="mb-12">
+                                    <H3 className="text-2xl mb-4">The Challenge</H3>
+                                    <Body size="lg" className="text-neutral-300 leading-relaxed">
+                                        {caseStudy.challenge}
+                                    </Body>
+                                </div>
+                            </SectionReveal>
+
+                            {caseStudy.problemDetails?.keyIssues && caseStudy.problemDetails.keyIssues.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.2}>
+                                    <div className="mb-12">
+                                        <H3 className="text-2xl mb-6">Key Issues Identified</H3>
+                                        <div className="space-y-4">
+                                            {caseStudy.problemDetails.keyIssues.map((issue, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.1 }}
+                                                    className="flex items-start gap-3 p-4 bg-neutral-900/50 rounded-lg border border-neutral-800"
+                                                >
+                                                    <div className="w-6 h-6 mt-1 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                                        <div className="w-2 h-2 bg-red-400 rounded-full" />
+                                                    </div>
+                                                    <Body className="text-neutral-300">{issue}</Body>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {caseStudy.problemDetails?.whyItMatters && (
+                                <SectionReveal animation="fadeUp" delay={0.3}>
+                                    <div className="mb-12 p-6 bg-gradient-to-br from-accent-500/10 to-transparent rounded-2xl border border-accent-500/20">
+                                        <H3 className="text-xl mb-4 text-accent-400">Why It Mattered</H3>
+                                        <Body className="text-neutral-200 leading-relaxed">
+                                            {caseStudy.problemDetails.whyItMatters}
+                                        </Body>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {caseStudy.problemDetails?.userPainPoints && caseStudy.problemDetails.userPainPoints.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.4}>
+                                    <div>
+                                        <H3 className="text-2xl mb-6">User Pain Points</H3>
+                                        <div className="space-y-3">
+                                            {caseStudy.problemDetails.userPainPoints.map((painPoint, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, y: 10 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.05 }}
+                                                    className="p-4 bg-neutral-900/70 rounded-lg border-l-4 border-accent-500"
+                                                >
+                                                    <Body size="sm" className="text-neutral-300 italic">
+                                                        "{painPoint}"
+                                                    </Body>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SectionReveal>
+                            )}
+                        </div>
+                    </Container>
+                </section>
+            )}
+
+            {/* Users & Constraints Section */}
+            {caseStudy?.users && (
+                <section className="py-24 bg-neutral-900">
+                    <Container>
+                        <div className="max-w-4xl mx-auto">
+                            <SectionReveal animation="fadeUp">
+                                <Caption label accent className="mb-4 block">
+                                    Context
+                                </Caption>
+                                <H2 className="mb-16">Users & Constraints</H2>
+                            </SectionReveal>
+
+                            {caseStudy.users.primaryUsers && (
+                                <SectionReveal animation="fadeUp" delay={0.1}>
+                                    <div className="mb-8">
+                                        <H3 className="text-2xl mb-4">Primary Users</H3>
+                                        <Body className="text-neutral-300 leading-relaxed">
+                                            {caseStudy.users.primaryUsers}
+                                        </Body>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {caseStudy.users.constraints && caseStudy.users.constraints.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.2}>
+                                    <div>
+                                        <H3 className="text-2xl mb-6">Key Constraints</H3>
+                                        <div className="grid md:grid-cols-2 gap-4">
+                                            {caseStudy.users.constraints.map((constraint, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, scale: 0.95 }}
+                                                    whileInView={{ opacity: 1, scale: 1 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.05 }}
+                                                    className="p-4 bg-neutral-800/50 rounded-lg border border-neutral-700"
+                                                >
+                                                    <Body size="sm" className="text-neutral-300">
+                                                        {constraint}
+                                                    </Body>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SectionReveal>
+                            )}
                         </div>
                     </Container>
                 </section>
             )}
 
             {/* Process Section */}
-            <section className="py-24 bg-neutral-950">
-                <Container>
-                    <div className="max-w-4xl mx-auto">
-                        <SectionReveal animation="fadeUp">
-                            <Caption label accent className="mb-4 block">
-                                Process
-                            </Caption>
-                            <H2 className="mb-16">Design Process</H2>
-                        </SectionReveal>
+            {caseStudy?.process && (
+                <section className="py-24 bg-neutral-950">
+                    <Container>
+                        <div className="max-w-4xl mx-auto">
+                            <SectionReveal animation="fadeUp">
+                                <Caption label accent className="mb-4 block">
+                                    Methodology
+                                </Caption>
+                                <H2 className="mb-16">Design Process</H2>
+                            </SectionReveal>
 
-                        {/* Research Insights */}
-                        <div className="grid md:grid-cols-3 gap-8 mb-16">
-                            {[
-                                { icon: '🔍', title: 'Research', desc: 'User interviews and competitive analysis' },
-                                { icon: '✏️', title: 'Ideation', desc: 'Wireframing and rapid prototyping' },
-                                { icon: '🎨', title: 'Design', desc: 'High-fidelity mockups and testing' },
-                            ].map((item, index) => (
-                                <SectionReveal key={item.title} animation="fadeUp" delay={index * 0.1}>
-                                    <motion.div
-                                        className="p-6 bg-neutral-900 rounded-xl border border-neutral-800"
-                                        whileHover={{ y: -4, borderColor: 'rgba(217, 70, 239, 0.5)' }}
-                                        transition={{ duration: 0.2 }}
-                                    >
-                                        <div className="text-4xl mb-4">{item.icon}</div>
-                                        <H3 className="text-xl mb-2">{item.title}</H3>
-                                        <Body size="sm" muted>{item.desc}</Body>
-                                    </motion.div>
+                            {caseStudy.process.research && (
+                                <SectionReveal animation="fadeUp" delay={0.1}>
+                                    <div className="mb-12">
+                                        <H3 className="text-2xl mb-4">Research & Discovery</H3>
+                                        <Body className="text-neutral-300 leading-relaxed">
+                                            {caseStudy.process.research}
+                                        </Body>
+                                    </div>
                                 </SectionReveal>
-                            ))}
-                        </div>
+                            )}
 
-                        {/* Wireframes Gallery */}
-                        {caseStudy?.images && caseStudy.images.length > 0 && (
-                            <div className="grid md:grid-cols-2 gap-6">
-                                {caseStudy.images.map((_image, index) => (
-                                    <SectionReveal key={index} animation="scale" delay={index * 0.1}>
-                                        <div className="aspect-video bg-neutral-900 rounded-xl overflow-hidden border border-neutral-800">
-                                            <div className="w-full h-full flex items-center justify-center text-neutral-600">
-                                                Image {index + 1}
-                                            </div>
+                            {caseStudy.process.keyInsights && caseStudy.process.keyInsights.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.2}>
+                                    <div className="mb-12">
+                                        <H3 className="text-2xl mb-6">Key Insights</H3>
+                                        <div className="space-y-3">
+                                            {caseStudy.process.keyInsights.map((insight, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.1 }}
+                                                    className="flex items-start gap-3"
+                                                >
+                                                    <div className="w-6 h-6 mt-1 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                                        <div className="w-2 h-2 bg-accent-400 rounded-full" />
+                                                    </div>
+                                                    <Body className="text-neutral-300">{insight}</Body>
+                                                </motion.div>
+                                            ))}
                                         </div>
-                                    </SectionReveal>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </Container>
-            </section>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {caseStudy.process.designDecisions && caseStudy.process.designDecisions.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.3}>
+                                    <div>
+                                        <H3 className="text-2xl mb-6">Key Design Decisions</H3>
+                                        <div className="space-y-6">
+                                            {caseStudy.process.designDecisions.map((decision, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.1 }}
+                                                    className="p-6 bg-neutral-900/70 rounded-xl border border-neutral-800"
+                                                >
+                                                    <H3 className="text-lg text-accent-400 mb-3">
+                                                        {decision.decision}
+                                                    </H3>
+                                                    <div className="space-y-3">
+                                                        <div>
+                                                            <Caption className="text-neutral-500 mb-1">
+                                                                Rationale:
+                                                            </Caption>
+                                                            <Body size="sm" className="text-neutral-300">
+                                                                {decision.rationale}
+                                                            </Body>
+                                                        </div>
+                                                        <div>
+                                                            <Caption className="text-neutral-500 mb-1">
+                                                                Trade-off:
+                                                            </Caption>
+                                                            <Body size="sm" className="text-neutral-400">
+                                                                {decision.tradeoff}
+                                                            </Body>
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </SectionReveal>
+                            )}
+                        </div>
+                    </Container>
+                </section>
+            )}
 
             {/* Solution Section */}
-            <section className="py-24 bg-neutral-900">
-                <Container>
-                    <div className="max-w-6xl mx-auto">
-                        <SectionReveal animation="fadeUp">
-                            <Caption label accent className="mb-4 block">
-                                Solution
-                            </Caption>
-                            <H2 className="mb-16">Final Design</H2>
-                        </SectionReveal>
-
-                        {/* High-fidelity Mockups */}
-                        <div className="space-y-12">
+            {caseStudy && (
+                <section className="py-24 bg-neutral-900">
+                    <Container>
+                        <div className="max-w-4xl mx-auto">
                             <SectionReveal animation="fadeUp">
-                                <div className="aspect-[16/9] bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl overflow-hidden border border-neutral-700 flex items-center justify-center">
-                                    <Caption className="text-neutral-600">High-Fidelity Mockup</Caption>
+                                <Caption label accent className="mb-4 block">
+                                    The Solution
+                                </Caption>
+                                <H2 className="mb-16">Design Solution</H2>
+                            </SectionReveal>
+
+                            <SectionReveal animation="fadeUp" delay={0.1}>
+                                <div className="mb-12">
+                                    <Body size="lg" className="text-neutral-200 leading-relaxed">
+                                        {caseStudy.solution}
+                                    </Body>
                                 </div>
                             </SectionReveal>
 
-                            {/* Design System Components */}
-                            <SectionReveal animation="fadeUp" delay={0.2}>
-                                <div className="grid md:grid-cols-3 gap-6">
-                                    {[1, 2, 3].map((i) => (
-                                        <div
-                                            key={i}
-                                            className="aspect-square bg-neutral-800 rounded-xl border border-neutral-700 flex items-center justify-center"
-                                        >
-                                            <Caption className="text-neutral-600">Component {i}</Caption>
+                            {caseStudy.solutionDetails?.coreFeatures && caseStudy.solutionDetails.coreFeatures.length > 0 && (
+                                <SectionReveal animation="fadeUp" delay={0.2}>
+                                    <div className="mb-12">
+                                        <H3 className="text-2xl mb-6">Core Features</H3>
+                                        <div className="space-y-4">
+                                            {caseStudy.solutionDetails.coreFeatures.map((feature, index) => (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ delay: index * 0.05 }}
+                                                    className="flex items-start gap-3 p-4 bg-neutral-800/50 rounded-lg border border-neutral-700"
+                                                >
+                                                    <div className="w-6 h-6 mt-1 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                                        ✓
+                                                    </div>
+                                                    <Body size="sm" className="text-neutral-300">{feature}</Body>
+                                                </motion.div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
-                            </SectionReveal>
+                                    </div>
+                                </SectionReveal>
+                            )}
+
+                            {/* Additional solution details */}
+                            <div className="space-y-8">
+                                {caseStudy.solutionDetails?.designSystem && (
+                                    <SectionReveal animation="fadeUp" delay={0.3}>
+                                        <div className="p-6 bg-neutral-800/30 rounded-xl border border-neutral-700">
+                                            <H3 className="text-lg mb-3">Design System</H3>
+                                            <Body size="sm" className="text-neutral-300">
+                                                {caseStudy.solutionDetails.designSystem}
+                                            </Body>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+
+                                {caseStudy.solutionDetails?.technicalOptimizations && (
+                                    <SectionReveal animation="fadeUp" delay={0.35}>
+                                        <div className="p-6 bg-neutral-800/30 rounded-xl border border-neutral-700">
+                                            <H3 className="text-lg mb-3">Technical Optimizations</H3>
+                                            <Body size="sm" className="text-neutral-300">
+                                                {caseStudy.solutionDetails.technicalOptimizations}
+                                            </Body>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+
+                                {caseStudy.solutionDetails?.accessibilityFeatures && (
+                                    <SectionReveal animation="fadeUp" delay={0.4}>
+                                        <div className="p-6 bg-neutral-800/30 rounded-xl border border-neutral-700">
+                                            <H3 className="text-lg mb-3">Accessibility Features</H3>
+                                            <Body size="sm" className="text-neutral-300">
+                                                {caseStudy.solutionDetails.accessibilityFeatures}
+                                            </Body>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+
+                                {caseStudy.solutionDetails?.aiExplainability && (
+                                    <SectionReveal animation="fadeUp" delay={0.45}>
+                                        <div className="p-6 bg-neutral-800/30 rounded-xl border border-neutral-700">
+                                            <H3 className="text-lg mb-3">AI Explainability</H3>
+                                            <Body size="sm" className="text-neutral-300">
+                                                {caseStudy.solutionDetails.aiExplainability}
+                                            </Body>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+
+                                {caseStudy.solutionDetails?.technicalImplementation && (
+                                    <SectionReveal animation="fadeUp" delay={0.5}>
+                                        <div className="p-6 bg-neutral-800/30 rounded-xl border border-neutral-700">
+                                            <H3 className="text-lg mb-3">Technical Implementation</H3>
+                                            <Body size="sm" className="text-neutral-300">
+                                                {caseStudy.solutionDetails.technicalImplementation}
+                                            </Body>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+                            </div>
                         </div>
-                    </div>
-                </Container>
-            </section>
+                    </Container>
+                </section>
+            )}
 
             {/* Impact Section */}
             {caseStudy && (
@@ -268,24 +569,22 @@ export const CaseStudy = () => {
                         <div className="max-w-4xl mx-auto">
                             <SectionReveal animation="fadeUp">
                                 <Caption label accent className="mb-4 block">
-                                    Impact
+                                    Results
                                 </Caption>
-                                <H2 className="mb-16">Results & Learnings</H2>
+                                <H2 className="mb-16">Impact & Outcome</H2>
                             </SectionReveal>
 
-                            {/* Impact Statement */}
                             <SectionReveal animation="fadeUp" delay={0.1}>
-                                <div className="p-8 bg-neutral-900 rounded-2xl border border-neutral-800 mb-12">
-                                    <Body size="lg" className="text-neutral-200">
+                                <div className="p-8 bg-gradient-to-br from-accent-500/10 to-transparent rounded-2xl border border-accent-500/20 mb-12">
+                                    <Body size="lg" className="text-neutral-200 leading-relaxed">
                                         {caseStudy.impact}
                                     </Body>
                                 </div>
                             </SectionReveal>
 
-                            {/* Testimonial */}
                             {caseStudy.testimonial && (
                                 <SectionReveal animation="fadeUp" delay={0.2}>
-                                    <div className="p-8 bg-gradient-to-br from-accent-500/10 to-transparent rounded-2xl border border-accent-500/20">
+                                    <div className="p-8 bg-neutral-900/70 rounded-2xl border border-neutral-800">
                                         <div className="text-4xl text-accent-400 mb-4">"</div>
                                         <Body size="lg" className="text-neutral-200 mb-6 italic">
                                             {caseStudy.testimonial.quote}
@@ -304,41 +603,81 @@ export const CaseStudy = () => {
                                     </div>
                                 </SectionReveal>
                             )}
+                        </div>
+                    </Container>
+                </section>
+            )}
 
-                            {/* Key Learnings */}
-                            <SectionReveal animation="fadeUp" delay={0.3}>
-                                <div className="mt-12">
-                                    <H3 className="text-2xl mb-6">Key Takeaways</H3>
-                                    <div className="space-y-4">
-                                        {[
-                                            'User research is critical for understanding real pain points',
-                                            'Iterative design leads to better solutions',
-                                            'Collaboration with stakeholders ensures alignment',
-                                        ].map((learning, index) => (
-                                            <motion.div
-                                                key={index}
-                                                initial={{ opacity: 0, x: -20 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                viewport={{ once: true }}
-                                                transition={{ delay: index * 0.1 }}
-                                                className="flex items-start gap-3"
-                                            >
-                                                <div className="w-6 h-6 mt-1 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0">
-                                                    <div className="w-2 h-2 bg-accent-400 rounded-full" />
-                                                </div>
-                                                <Body className="text-neutral-300">{learning}</Body>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-                                </div>
+            {/* Learnings Section */}
+            {caseStudy?.learnings && (
+                <section className="py-24 bg-neutral-900">
+                    <Container>
+                        <div className="max-w-4xl mx-auto">
+                            <SectionReveal animation="fadeUp">
+                                <Caption label accent className="mb-4 block">
+                                    Reflection
+                                </Caption>
+                                <H2 className="mb-16">Learnings & Takeaways</H2>
                             </SectionReveal>
+
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {caseStudy.learnings.whatWorked && caseStudy.learnings.whatWorked.length > 0 && (
+                                    <SectionReveal animation="fadeUp" delay={0.1}>
+                                        <div>
+                                            <H3 className="text-2xl mb-6 text-green-400">What Worked Well</H3>
+                                            <div className="space-y-4">
+                                                {caseStudy.learnings.whatWorked.map((item, index) => (
+                                                    <motion.div
+                                                        key={index}
+                                                        initial={{ opacity: 0, x: -20 }}
+                                                        whileInView={{ opacity: 1, x: 0 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ delay: index * 0.1 }}
+                                                        className="flex items-start gap-3"
+                                                    >
+                                                        <div className="w-6 h-6 mt-1 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                                            <div className="w-2 h-2 bg-green-400 rounded-full" />
+                                                        </div>
+                                                        <Body size="sm" className="text-neutral-300">{item}</Body>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+
+                                {caseStudy.learnings.whatIWouldImprove && caseStudy.learnings.whatIWouldImprove.length > 0 && (
+                                    <SectionReveal animation="fadeUp" delay={0.2}>
+                                        <div>
+                                            <H3 className="text-2xl mb-6 text-orange-400">What I'd Improve</H3>
+                                            <div className="space-y-4">
+                                                {caseStudy.learnings.whatIWouldImprove.map((item, index) => (
+                                                    <motion.div
+                                                        key={index}
+                                                        initial={{ opacity: 0, x: -20 }}
+                                                        whileInView={{ opacity: 1, x: 0 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ delay: index * 0.1 }}
+                                                        className="flex items-start gap-3"
+                                                    >
+                                                        <div className="w-6 h-6 mt-1 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                                            <div className="w-2 h-2 bg-orange-400 rounded-full" />
+                                                        </div>
+                                                        <Body size="sm" className="text-neutral-300">{item}</Body>
+                                                    </motion.div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </SectionReveal>
+                                )}
+                            </div>
                         </div>
                     </Container>
                 </section>
             )}
 
             {/* Project Navigation */}
-            <section className="py-24 bg-neutral-900">
+            <section className="py-24 bg-neutral-950">
                 <Container>
                     <SectionReveal animation="fadeUp">
                         <ProjectNavigation currentProject={project} allProjects={projects} />

@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '../../utils/cn';
 import projectsData from '../../data/projects.json';
+import { OptimizedImage } from './OptimizedImage';
+import { getProjectPlaceholder } from '../../utils/placeholders';
 
 type Category = 'All' | 'SaaS' | 'CRM' | 'Landing Page';
 
@@ -157,18 +159,17 @@ export const ProjectGrid = ({
                             {/* Background Image */}
                             <div className="absolute inset-0">
                                 <motion.div
-                                    className="w-full h-full bg-gradient-to-br from-accent-500/20 to-neutral-900"
+                                    className="w-full h-full overflow-hidden"
                                     animate={{
                                         scale: hoveredProject === project.id ? 1.1 : 1,
                                     }}
                                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
                                 >
-                                    {/* Placeholder for actual image */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="text-6xl opacity-10">
-                                            {project.category === 'SaaS' ? '📊' : project.category === 'CRM' ? '👥' : '🌐'}
-                                        </div>
-                                    </div>
+                                    <OptimizedImage
+                                        src={project.thumbnail || getProjectPlaceholder(project.category)}
+                                        alt={project.title}
+                                        className="w-full h-full"
+                                    />
                                 </motion.div>
                             </div>
 

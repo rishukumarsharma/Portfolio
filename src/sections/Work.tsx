@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from '../components/layout';
 import { Card } from '../components/ui';
@@ -103,6 +104,11 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate(`/case-study/${project.id}`);
+    };
 
     return (
         <Card
@@ -111,6 +117,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             className="group overflow-hidden cursor-pointer"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={handleClick}
         >
             {/* Thumbnail */}
             <div className="relative aspect-[16/10] overflow-hidden bg-neutral-800">

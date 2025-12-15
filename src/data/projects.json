@@ -2,7 +2,8 @@
     {
         "id": "enterprise-crm-redesign",
         "title": "Enterprise CRM Redesign",
-        "category": "CRM",
+        "subtitle": "Transforming sales team productivity",
+        "category": "Web Application",
         "thumbnail": "/images/projects/crm-thumb.jpg",
         "description": "Overhauling a legacy CRM system to improve sales team productivity and customer insights",
         "tags": [
@@ -14,31 +15,119 @@
         "behanceUrl": "https://behance.net/gallery/enterprise-crm",
         "featured": true,
         "year": "2024",
+        "color": "#3b82f6",
         "metrics": {
-            "userIncrease": "40%",
-            "engagementBoost": "2.5x",
-            "timeReduction": "35%"
+            "Task Completion": "35% faster",
+            "User Adoption": "+40%",
+            "Satisfaction": "4.7/5",
+            "Error Rate": "-52%"
         },
         "caseStudy": {
-            "challenge": "Sales teams struggled with a cluttered interface, leading to low adoption rates and missed opportunities. The system lacked modern features and had poor mobile support.",
-            "solution": "Conducted extensive user research with 50+ sales professionals, created a unified design system, and implemented a progressive disclosure pattern to reduce cognitive load.",
-            "impact": "Reduced task completion time by 35%, increased daily active users by 40%, and improved customer satisfaction scores from 3.2 to 4.7/5.",
-            "images": [
-                "/images/projects/crm-research.jpg",
-                "/images/projects/crm-wireframes.jpg",
-                "/images/projects/crm-final.jpg"
-            ],
+            "overview": {
+                "role": "Lead UX Designer",
+                "timeline": "12 weeks",
+                "team": "Product Manager, 2 Engineers, QA",
+                "deliverables": [
+                    "User Research",
+                    "Information Architecture",
+                    "Design System",
+                    "High-fidelity Prototypes"
+                ]
+            },
+            "challenge": "Sales teams struggled with a cluttered, fragmented interface that had evolved organically over 5 years. Navigation across 7+ disconnected screens was required for basic tasks, leading to frustration, low adoption rates, and missed sales opportunities. Mobile support was essentially non-existent, forcing field sales reps to wait until returning to the office.",
+            "problemDetails": {
+                "keyIssues": [
+                    "Scattered workflows requiring 7+ screen transitions for common tasks",
+                    "Inconsistent UI patterns creating cognitive load and errors",
+                    "Critical customer data buried in nested menus",
+                    "No mobile optimization despite 40% of users working remotely",
+                    "Manual data entry causing 15-20 errors per sales rep weekly"
+                ],
+                "whyItMatters": "Sales efficiency directly impacts revenue. With reps spending 2-3 hours daily fighting the tool instead of selling, the company was losing an estimated $2M annually in productivity. As the team scaled, these inefficiencies would compound.",
+                "userPainPoints": [
+                    "\"I keep 3 spreadsheets open because the CRM doesn't show what I need\"",
+                    "\"Finding a customer's history requires memorizing a 9-click path\"",
+                    "\"Half my follow-ups are late because I can't see my task queue\"",
+                    "\"On client visits, I can't access anything on my phone\""
+                ]
+            },
+            "users": {
+                "primaryUsers": "Inside sales reps (daily power users), field sales managers (weekly reviewers), executives (monthly dashboards)",
+                "constraints": [
+                    "Legacy Salesforce integration couldn't be modified",
+                    "Had to support IE11 for enterprise clients",
+                    "Limited direct user access due to busy sales schedules",
+                    "Fixed approval workflows required by compliance",
+                    "8-week delivery deadline for Q1 sales kickoff"
+                ]
+            },
+            "process": {
+                "research": "Conducted contextual inquiry with 12 users, analyzing 50+ hours of session recordings. Discovered that 80% of time was spent on just 5 core workflows. Created task-based user flows and identified 23 specific friction points.",
+                "keyInsights": [
+                    "Users wanted MORE information density, not less—they're experts",
+                    "Speed trumped visual polish—every saved click mattered",
+                    "Mobile wasn't for data entry, just quick lookup",
+                    "Search was broken—relevance algorithm prioritized wrong fields"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "Unified dashboard vs. separate modules",
+                        "rationale": "Users needed cross-workflow visibility—deals, tasks, and contacts all inform each other",
+                        "tradeoff": "Initial complexity, but user testing confirmed value"
+                    },
+                    {
+                        "decision": "Inline editing for all fields",
+                        "rationale": "Reduce edit→save→close→reopen cycle that users repeated 30+ times daily",
+                        "tradeoff": "Required robust auto-save and conflict resolution"
+                    },
+                    {
+                        "decision": "Progressive disclosure for advanced features",
+                        "rationale": "80/20 rule—surface common actions, hide advanced options",
+                        "tradeoff": "Power users needed keyboard shortcuts documented"
+                    }
+                ]
+            },
+            "solution": "Redesigned from task-based flows rather than database structure. Created a unified command center with intelligent task prioritization, global search, and contextual quick actions. Implemented a mobile-first lookup experience for field reps. Built a scalable design system to reduce future design debt.",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "Smart dashboard: AI-prioritized tasks with inline actions",
+                    "Universal search: Searches across all entities with smart filters",
+                    "Quick view panels: See customer context without leaving current screen",
+                    "Batch operations: Process multiple deals/contacts simultaneously",
+                    "Mobile companion: Read-only access optimized for phones"
+                ],
+                "designSystem": "Created 40+ reusable components with clear usage guidelines. Documented interaction patterns, spacing rules, and accessibility requirements. This reduced design→dev handoff time by 60%."
+            },
+            "impact": "Task completion time dropped 35% for primary workflows. User adoption increased from 60% to 84%. Customer satisfaction scores jumped from 3.2 to 4.7/5. Error rates decreased 52% due to better validation and inline feedback. Sales team hit Q1 targets 2 weeks early—attributed in part to efficiency gains.",
             "testimonial": {
-                "quote": "The new CRM has transformed how our team works. Tasks that took 10 minutes now take 3.",
+                "quote": "The new CRM transformed our workflow. Tasks that took 10 minutes now take 3. I can finally focus on selling instead of data entry.",
                 "author": "Sarah Johnson",
                 "role": "VP of Sales, TechCorp"
-            }
+            },
+            "learnings": {
+                "whatWorked": [
+                    "Watching users work in their real environment revealed hidden workarounds",
+                    "Prioritizing ruthlessly—we cut 40% of planned features to ship on time",
+                    "Weekly engineering syncs prevented design→dev friction"
+                ],
+                "whatIWouldImprove": [
+                    "Earlier mobile testing—we discovered viewport issues late",
+                    "More documentation of rationale—future designers needed context",
+                    "Pushed for A/B testing budget to validate assumptions with data"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&h=1080&fit=crop"
+            ]
         }
     },
     {
         "id": "fintech-saas-dashboard",
         "title": "FinTech SaaS Dashboard",
-        "category": "SaaS",
+        "subtitle": "Democratizing financial analytics",
+        "category": "Web Application",
         "thumbnail": "/images/projects/fintech-thumb.jpg",
         "description": "Building an intuitive dashboard for financial analytics and automated reporting",
         "tags": [
@@ -50,31 +139,122 @@
         "behanceUrl": "https://behance.net/gallery/fintech-saas",
         "featured": true,
         "year": "2024",
+        "color": "#10b981",
         "metrics": {
-            "userIncrease": "125%",
-            "engagementBoost": "3.2x",
-            "revenueGrowth": "85%"
+            "User Growth": "+125%",
+            "Engagement": "3.2x",
+            "Revenue": "+85%",
+            "Churn": "-23%"
         },
         "caseStudy": {
-            "challenge": "Complex financial data needed to be presented in a way that was accessible to non-technical users while maintaining depth for power users.",
-            "solution": "Designed a progressive complexity system with smart defaults, customizable widgets, and AI-powered insights that surface automatically.",
-            "impact": "User base grew 125% in 6 months, engagement increased 3.2x, and customer-reported productivity improved by 60%.",
-            "images": [
-                "/images/projects/fintech-persona.jpg",
-                "/images/projects/fintech-flows.jpg",
-                "/images/projects/fintech-dashboard.jpg"
-            ],
+            "overview": {
+                "role": "UX Designer",
+                "timeline": "10 weeks",
+                "team": "Product Lead, 3 Engineers, Data Analyst",
+                "deliverables": [
+                    "Competitive Analysis",
+                    "User Personas",
+                    "Wireframes",
+                    "Visual Design",
+                    "Prototypes"
+                ]
+            },
+            "challenge": "Complex financial data was presented in overwhelming spreadsheet-like tables that intimidated non-technical users, while power users needed advanced analytics not available. Competitors had similar problems—no one had solved for both audiences. The existing product had high sign-up rates but 60% churn within 30 days.",
+            "problemDetails": {
+                "keyIssues": [
+                    "Data overload—users saw 50+ metrics with no guidance on what mattered",
+                    "No personalization—same view for CFOs and junior analysts",
+                    "Static reports—users wanted 'why' not just 'what'",
+                    "Steep learning curve—took 2 weeks training to become proficient",
+                    "Poor data visualization—everything was tables, no charts"
+                ],
+                "whyItMatters": "Small businesses couldn't afford data analysts but needed financial insights to survive. Our product promised to democratize analytics, but complexity was preventing adoption. Meanwhile, power users were churning to more advanced tools.",
+                "userPainPoints": [
+                    "\"I just want to know if I'm profitable—why is this so complicated?\"",
+                    "\"I need alerts when metrics change, not daily check-ins\"",
+                    "\"The reports look like spreadsheet vomit—I can't present these\"",
+                    "\"Where's the trend? I only see current numbers\""
+                ]
+            },
+            "users": {
+                "primaryUsers": "Small business owners (novices seeking insights), finance managers (intermediate users), CFOs (power users wanting customization)",
+                "constraints": [
+                    "Real-time sync requirements limited UI performance",
+                    "Had to integrate 15+ banking APIs with inconsistent data",
+                    "GDPR/SOC2 compliance restricted certain features",
+                    "Mobile was MVP—70% accessed on desktop",
+                    "Couldn't change backend data models in timeline"
+                ]
+            },
+            "process": {
+                "research": "Interviewed 35 users across 3 personas. Analyzed 200+ support tickets to find common confusion points. Studied 8 competitors—all failed at progressive complexity. Conducted card sorting to understand mental models of financial concepts.",
+                "keyInsights": [
+                    "Novices wanted 'traffic lights'—good/bad, not nuanced metrics",
+                    "Intermediates wanted Why—anomaly detection, not raw data",
+                    "Power users wanted Total Control—custom formulas, exports",
+                    "All users wanted insights pushed to them, not pulled",
+                    "Trust required transparency—show data sources, not black box"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "Progressive complexity system",
+                        "rationale": "Serve all three personas with layered interface—simple by default, advanced on demand",
+                        "tradeoff": "Complex to build, but essential for retention"
+                    },
+                    {
+                        "decision": "AI-powered insight cards",
+                        "rationale": "Surface anomalies automatically—'Revenue down 15% vs. last month'",
+                        "tradeoff": "Required ML team collaboration"
+                    },
+                    {
+                        "decision": "Customizable widget dashboard",
+                        "rationale": "Power users build their ideal view, novices use smart defaults",
+                        "tradeoff": "Paradox of choice—mitigated with templates"
+                    }
+                ]
+            },
+            "solution": "Built a three-tier dashboard: Simple (key metrics with health indicators), Standard (trends and breakdowns), Advanced (custom widgets and formulas). Implemented AI insights that proactively surface anomalies. Created drag-and-drop customization without overwhelming defaults.",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "Smart defaults: Role-based dashboard presets (Owner, Manager, CFO)",
+                    "Insight engine: Automatic anomaly detection with plain English explanations",
+                    "Visualization library: 12 chart types from simple bars to advanced waterfall",
+                    "Custom formulas: Power users can create calculated metrics",
+                    "Scheduled reports: Email PDFs on custom cadence",
+                    "Alert system: Threshold-based notifications via email/Slack"
+                ],
+                "designSystem": "Established color-coded metric system (green=good, red=needs attention, gray=neutral). Created consistent chart styles. Built accessibility into all visualizations (WCAG AA)."
+            },
+            "impact": "User base grew 125% in 6 months post-launch. Engagement (DAU/MAU) increased from 18% to 58%. Revenue grew 85% from both new customers and reduced churn. Customer-reported productivity improved 60%. NPS score jumped from 32 to 71.",
             "testimonial": {
-                "quote": "This dashboard gives us insights we never knew we needed. It's become essential to our workflow.",
+                "quote": "This dashboard gives us insights we never knew we needed. The AI alerts have caught issues that would've cost us thousands. It's become essential to our workflow.",
                 "author": "Michael Chen",
                 "role": "CFO, StartupFin"
-            }
+            },
+            "learnings": {
+                "whatWorked": [
+                    "Progressive complexity validated through A/B testing—16% better retention",
+                    "AI insights were the killer feature—most mentioned in NPS feedback",
+                    "Templates prevented choice paralysis for novice users"
+                ],
+                "whatIWouldImprove": [
+                    "Mobile experience was afterthought—should've started mobile-first",
+                    "Onboarding needed more hand-holding for novice segment",
+                    "Export functionality came late—users wanted it earlier"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop"
+            ]
         }
     },
     {
         "id": "ecommerce-landing-redesign",
-        "title": "E-commerce Landing Page",
-        "category": "Landing Page",
+        "title": "E-commerce Landing Page Redesign",
+        "subtitle": "Conversion-focused redesign",
+        "category": "Web Design",
         "thumbnail": "/images/projects/ecom-thumb.jpg",
         "description": "High-converting landing page design that increased conversions by 180%",
         "tags": [
@@ -86,31 +266,123 @@
         "behanceUrl": "https://behance.net/gallery/ecommerce-landing",
         "featured": true,
         "year": "2024",
+        "color": "#8b5cf6",
         "metrics": {
-            "conversionIncrease": "180%",
-            "bounceReduction": "45%",
-            "averageOrderValue": "+32%"
+            "Conversion Rate": "2.1% → 5.9%",
+            "Bounce Rate": "-45%",
+            "Avg Order Value": "+32%",
+            "Page Load": "1.2s"
         },
         "caseStudy": {
-            "challenge": "The original landing page had a 2.1% conversion rate and high bounce rate. Users weren't understanding the value proposition quickly enough.",
-            "solution": "Implemented F-pattern layout with clear hero section, social proof above the fold, and strategically placed CTAs based on scroll depth analysis.",
-            "impact": "Conversion rate jumped from 2.1% to 5.9%, bounce rate decreased by 45%, and average order value increased by 32%.",
-            "images": [
-                "/images/projects/ecom-heatmap.jpg",
-                "/images/projects/ecom-iterations.jpg",
-                "/images/projects/ecom-final.jpg"
-            ],
+            "overview": {
+                "role": "UX/UI Designer",
+                "timeline": "4 weeks",
+                "team": "Marketing Lead, Developer, Copywriter",
+                "deliverables": [
+                    "Heatmap Analysis",
+                    "A/B Test Strategy",
+                    "High-fidelity Designs",
+                    "Development Handoff"
+                ]
+            },
+            "challenge": "An eco-friendly product company had great products but terrible conversion (2.1%). Heatmaps showed users scrolling past the hero without understanding the value proposition. Bounce rate was 67%. The founder was considering shutting down if we couldn't improve metrics within one quarter.",
+            "problemDetails": {
+                "keyIssues": [
+                    "Vague hero—'Sustainable Solutions' meant nothing specific",
+                    "No social proof above fold—trust signals buried at bottom",
+                    "Weak CTA—'Learn More' not action-oriented",
+                    "Mobile disaster—text tiny, buttons unclickable, slow load (4.2s)",
+                    "Feature-focused—listed specs instead of benefits",
+                    "Poor imagery—stock photos, not authentic product shots"
+                ],
+                "whyItMatters": "With $15K/month in ad spend and 2.1% conversion, customer acquisition cost was $142. Product margin was only $89. Business was losing money on every customer. Improving conversion was literally survival.",
+                "userPainPoints": [
+                    "\"What exactly are you selling?\"—confusion from exit surveys",
+                    "\"Why should I trust you?\"—no reviews visible initially",
+                    "\"Too risky to buy from unknown brand\"—trust barrier",
+                    "\"I bounced because page took forever to load\"—mobile users"
+                ]
+            },
+            "users": {
+                "primaryUsers": "Eco-conscious millennials (85% mobile), 65% female, high intent but low trust for new brands",
+                "constraints": [
+                    "Couldn't change product or pricing",
+                    "Limited budget—$0 for new photography",
+                    "Shopify platform restrictions on page structure",
+                    "4-week hard deadline before next ad campaign",
+                    "A/B test minimum 1000 visitors per variant"
+                ]
+            },
+            "process": {
+                "research": "Analyzed heatmaps (Hotjar) showing 73% scrolled past hero. Reviewed exit surveys revealing value prop confusion. Studied 12 high-converting eco-brands. Conducted 5-second tests—users couldn't explain product. Analyzed mobile vs desktop performance (mobile was catastrophic).",
+                "keyInsights": [
+                    "Users needed to understand what, why, who in 3 seconds",
+                    "Trust signals (reviews, certifications) must be above fold",
+                    "Mobile speed was #1 bounce factor—4.2s unacceptable",
+                    "Direct CTAs ('Shop Now') outperformed soft ones ('Learn More')",
+                    "Before/after imagery more compelling than product-only shots"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "F-pattern layout for hero",
+                        "rationale": "Guide eye to logo → headline → CTA using natural reading flow",
+                        "tradeoff": "Less creative, but proven conversion pattern"
+                    },
+                    {
+                        "decision": "Social proof above fold",
+                        "rationale": "Trust signals needed immediately to counter skepticism",
+                        "tradeoff": "Crowded hero, but A/B testing validated +31% conversion"
+                    },
+                    {
+                        "decision": "Scroll-triggered CTAs",
+                        "rationale": "Multiple CTAs at different scroll depths (33%, 66%, 100%)",
+                        "tradeoff": "Development complexity"
+                    }
+                ]
+            },
+            "solution": "Redesigned with crystal-clear value prop ('Plastic-Free Home Essentials'), strategic social proof placement (4.9★ + certification badges above fold), scroll-optimized CTAs, mobile-first responsive design, and optimized images reducing load time from 4.2s to 1.2s.",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "Hero: Benefit-focused headline + authentic product imagery + trust badges + direct CTA",
+                    "Social proof: 1,200+ reviews + '30-Day Guarantee' + sustainability certifications",
+                    "Benefits section: Icons + clear value props addressing objections",
+                    "Comparison table: Us vs. plastic alternatives (visual, scannable)",
+                    "Exit intent popup: 10% discount + email capture for abandonments",
+                    "Mobile optimization: Thumb-friendly CTAs, readable typography, hero image swap"
+                ],
+                "technicalOptimizations": "Lazy loading images, WebP format, preloaded critical assets, inline critical CSS, reduced third-party scripts"
+            },
+            "impact": "Conversion rate jumped from 2.1% to 5.9% (181% increase). Bounce rate dropped from 67% to 37%. Average order value increased 32% due to clearer product presentation. Page load time 1.2s (previously 4.2s). Revenue tripled in first month. Customer acquisition cost dropped from $142 to $48, making unit economics profitable.",
             "testimonial": {
-                "quote": "The redesign paid for itself in the first week. Our revenue has tripled since launch.",
+                "quote": "The redesign paid for itself in the first week. Our revenue has tripled, and we're finally profitable. Thank you for saving our business.",
                 "author": "Emily Rodriguez",
                 "role": "Founder, GreenLeaf Co"
-            }
+            },
+            "learnings": {
+                "whatWorked": [
+                    "Data-driven decisions—heatmaps and exit surveys guided every change",
+                    "A/B testing prevented opinions—let users decide",
+                    "Mobile-first approach critical—85% of traffic was mobile",
+                    "Speed mattered more than fancy animations"
+                ],
+                "whatIWouldImprove": [
+                    "Test more radical variations—we played it safe",
+                    "Video testimonials would boost trust further",
+                    "Personalization based on traffic source (social vs. search)"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&h=1080&fit=crop"
+            ]
         }
     },
     {
         "id": "healthcare-patient-portal",
         "title": "Healthcare Patient Portal",
-        "category": "SaaS",
+        "subtitle": "Accessible healthcare for all",
+        "category": "Web Application",
         "thumbnail": "/images/projects/health-thumb.jpg",
         "description": "HIPAA-compliant patient portal focusing on accessibility and ease of use",
         "tags": [
@@ -122,31 +394,124 @@
         "behanceUrl": "https://behance.net/gallery/healthcare-portal",
         "featured": false,
         "year": "2023",
+        "color": "#ef4444",
         "metrics": {
-            "accessibilityScore": "98/100",
-            "patientSatisfaction": "4.8/5",
-            "supportTickets": "-67%"
+            "Accessibility": "98/100",
+            "Satisfaction": "4.8/5",
+            "Support Tickets": "-67%",
+            "Task Success": "92%"
         },
         "caseStudy": {
-            "challenge": "Patients, especially elderly users, found the existing portal confusing and inaccessible. WCAG compliance was minimal.",
-            "solution": "Conducted usability testing with diverse age groups, implemented WCAG 2.1 AAA standards, and created clear information hierarchy.",
-            "impact": "Accessibility score reached 98/100, patient satisfaction increased to 4.8/5, and support tickets decreased by 67%.",
-            "images": [
-                "/images/projects/health-user-testing.jpg",
-                "/images/projects/health-accessibility.jpg",
-                "/images/projects/health-portal.jpg"
-            ],
+            "overview": {
+                "role": "UX Designer",
+                "timeline": "14 weeks",
+                "team": "Product Manager, Healthcare Consultant, 3 Engineers, Accessibility Expert",
+                "deliverables": [
+                    "Accessibility Audit",
+                    "User Testing (Elderly Focus)",
+                    "WCAG 2.1 AAA Compliance",
+                    "Design System"
+                ]
+            },
+            "challenge": "Patients, especially elderly users (60+ age group representing 45% of users), found the portal confusing and inaccessible. WCAG compliance was barely AA level. Support calls from frustrated patients cost $50K/year. Doctors reported patients showing up with printouts because they couldn't navigate digital portal.",
+            "problemDetails": {
+                "keyIssues": [
+                    "Tiny fonts (12px)—unreadable for elderly and vision-impaired",
+                    "Low contrast (3.2:1)—failed WCAG AA guidelines",
+                    "Complex navigation—3-level menus overwhelmed users",
+                    "No keyboard navigation—accessibility nightmare",
+                    "Medical jargon—'Rx' and abbreviations confused patients",
+                    "Dense information—no breathing room or visual hierarchy"
+                ],
+                "whyItMatters": "Healthcare access is a right, not a privilege. When digital tools exclude elderly or disabled users, they're forced into expensive phone support or in-person visits. During COVID, this became critical as patients needed remote access but couldn't use the portal.",
+                "userPainPoints": [
+                    "\"I need a magnifying glass to read anything\"—elderly user",
+                    "\"My screen reader can't navigate this\"—visually impaired user",
+                    "\"I just want my test results—why are there 8 menu options?\"",
+                    "\"What does 'Rx' mean? Why not say 'Prescriptions'?\""
+                ]
+            },
+            "users": {
+                "primaryUsers": "Patients aged 60+ (45%), chronic condition patients needing frequent access, caregivers managing family member accounts",
+                "constraints": [
+                    "HIPAA compliance non-negotiable—strict data privacy",
+                    "Had to integrate with legacy EHR system (Epic)",
+                    "Medical terminology sometimes unavoidable per legal",
+                    "Budget for only 2 rounds of user testing",
+                    "Must support assistive technologies (screen readers, voice control)"
+                ]
+            },
+            "process": {
+                "research": "Conducted accessibility audit (scored 56/100). Usability testing with 8 elderly users (65-82 years old) + 3 visually impaired users using screen readers. Observed 15 patients in clinic trying to use portal with trained observer. Analyzed support call transcripts (200+ tickets).",
+                "keyInsights": [
+                    "Elderly users struggled with nested navigation—prefer flat structure",
+                    "Screen reader users couldn't skip to content—poor heading structure",
+                    "Touch targets too small (32px minimum needed, we had 24px)",
+                    "Color-only indicators excluded colorblind users",
+                    "Medical jargon created anxiety—plain language essential",
+                    "Success confirmation unclear—users unsure if action completed"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "Flat navigation (max 2 levels)",
+                        "rationale": "Elderly users got lost in nested menus—reduce cognitive load",
+                        "tradeoff": "More items on main nav, but clearer mental model"
+                    },
+                    {
+                        "decision": "WCAG 2.1 AAA (exceeding AA requirement)",
+                        "rationale": "Healthcare should be exemplar for accessibility, not minimum compliance",
+                        "tradeoff": "Higher development cost, but mission-critical"
+                    },
+                    {
+                        "decision": "Plain language + tooltips for medical terms",
+                        "rationale": "Can't always avoid medical terms, but can explain them",
+                        "tradeoff": "Additional content management overhead"
+                    }
+                ]
+            },
+            "solution": "Complete redesign prioritizing accessibility: 16px+ body text, 7:1+ contrast ratios, keyboard-first navigation, plain language with medical term tooltips, generous whitespace, clear visual hierarchy, extensive ARIA labels for screen readers, and success confirmations for every action.",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "Dashboard: Top 5 tasks (appointments, messages, prescriptions, test results, billing)",
+                    "Plain language: 'Prescriptions' not 'Rx', 'Doctor's Notes' not 'Clinical Summary'",
+                    "Keyboard navigation: Skip links, focus indicators, tab order logic",
+                    "Responsive text: Users can increase to 200% without breaking layout",
+                    "Color + icons: Never color-only indicators (icons + labels always)",
+                    "Success feedback: Clear confirmation messages with next steps"
+                ],
+                "accessibilityFeatures": "ARIA landmarks, alt text on all images, focus trap in modals, high-contrast mode, skip navigation, descriptive link text, form labels properly associated, error messages clear and actionable"
+            },
+            "impact": "Accessibility score reached 98/100 (WCAG 2.1 AAA). Patient satisfaction jumped from 3.1/5 to 4.8/5. Support tickets decreased 67% (saving $34K/year). Task success rate increased from 64% to 92%. Elderly adoption rate (60+) grew from 28% to 71%.",
             "testimonial": {
-                "quote": "Finally, a healthcare portal my parents can actually use. The impact on patient engagement has been remarkable.",
+                "quote": "Finally, a healthcare portal my parents can actually use. They can book appointments and check test results independently now. The impact on patient engagement has been remarkable.",
                 "author": "Dr. James Wilson",
                 "role": "Chief Medical Officer, HealthFirst"
-            }
+            },
+            "learnings": {
+                "whatWorked": [
+                    "Testing with actual elderly users revealed issues expert reviews missed",
+                    "Iterating with accessibility consultant ensured WCAG compliance",
+                    "Plain language reduced support calls dramatically",
+                    "Generous touch targets solved mobile issues"
+                ],
+                "whatIWouldImprove": [
+                    "Video tutorials for first-time users (we only had text guides)",
+                    "More user testing rounds (budget allowed only 2)",
+                    "Voice interface exploration for hands-free interaction"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&h=1080&fit=crop"
+            ]
         }
     },
     {
         "id": "ai-productivity-tool",
         "title": "AI Productivity Assistant",
-        "category": "SaaS",
+        "subtitle": "Your intelligent task partner",
+        "category": "Web Application",
         "thumbnail": "/images/projects/ai-thumb.jpg",
         "description": "AI-powered task management and productivity platform with natural language interface",
         "tags": [
@@ -158,31 +523,126 @@
         "behanceUrl": "https://behance.net/gallery/ai-productivity",
         "featured": true,
         "year": "2024",
+        "color": "#f59e0b",
         "metrics": {
-            "taskCompletion": "+55%",
-            "userRetention": "89%",
-            "dailyActiveUsers": "2.8x"
+            "Task Completion": "+55%",
+            "User Retention": "89%",
+            "Daily Active Users": "2.8x",
+            "Time Saved": "4hrs/week"
         },
         "caseStudy": {
-            "challenge": "Users felt overwhelmed by traditional task managers. Natural language AI needed to feel intuitive, not gimmicky.",
-            "solution": "Designed a conversational interface that learns user preferences, with smart task breakdowns and context-aware suggestions.",
-            "impact": "Task completion rates increased 55%, retention hit 89%, and DAU grew 2.8x in 3 months.",
-            "images": [
-                "/images/projects/ai-research.jpg",
-                "/images/projects/ai-prototypes.jpg",
-                "/images/projects/ai-interface.jpg"
-            ],
+            "overview": {
+                "role": "Lead UX Designer",
+                "timeline": "16 weeks",
+                "team": "Product Manager, ML Engineer, 2 Frontend Devs, Backend Dev",
+                "deliverables": [
+                    "Conversational UI Design",
+                    "AI Interaction Patterns",
+                    "Onboarding Flow",
+                    "Mobile App Design"
+                ]
+            },
+            "challenge": "Traditional task managers overwhelmed users with manual organization (tags, projects, priorities). Natural language AI promised easier interaction, but early prototypes felt gimmicky—users fought with the AI instead of trusting it. 70% abandonment within first week showed we hadn't cracked the UX.",
+            "problemDetails": {
+                "keyIssues": [
+                    "AI felt unreliable—users lost trust after 2-3 misunderstandings",
+                    "Forced natural language—some tasks faster with traditional UI",
+                    "Black box decisions—AI categorized tasks without explaining why",
+                    "No correction mechanism—when AI was wrong, users couldn't fix it",
+                    "Novelty wore off—after initial excitement, users reverted to old tools",
+                    "Onboarding didn't teach AI's capabilities—users treated it like search"
+                ],
+                "whyItMatters": "The productivity app market is saturated. Users have tried dozens of tools and abandoned them all. AI was our differentiator, but only if it genuinely saved time—if it created friction, we'd fail like everyone else. With $2M seed funding, we had 6 months to prove product-market fit.",
+                "userPainPoints": [
+                    "\"I spent 10 minutes arguing with the AI about a simple task\"",
+                    "\"It keeps putting client work in 'Personal'—how do I teach it?\"",
+                    "\"I don't understand what the AI is doing behind the scenes\"",
+                    "\"Some tasks I just want to click and add—typing is slower\""
+                ]
+            },
+            "users": {
+                "primaryUsers": "Knowledge workers (product managers, marketers, consultants), freelancers juggling multiple clients, managers coordinating team tasks",
+                "constraints": [
+                    "AI model response time had to be <500ms for real-time feel",
+                    "Privacy concerns—couldn't send sensitive data to external APIs",
+                    "Mobile was critical—65% of quick task capture on phone",
+                    "Offline mode required—users needed access on planes",
+                    "Freemium model—had to demonstrate value before paywall"
+                ]
+            },
+            "process": {
+                "research": "Diary study with 20 users tracking task management patterns for 2 weeks. Analyzed 10K+ task inputs to understand natural language patterns. Studied conversational UI best practices (Alexa, Siri failure modes). Conducted Wizard of Oz testing with human simulating AI to test interaction patterns.",
+                "keyInsights": [
+                    "Users trusted AI more when it explained reasoning ('This seems urgent because deadline is tomorrow')",
+                    "Hybrid UI won—quick adds via traditional form, complex tasks via natural language",
+                    "Learning visible progress built trust—'AI learned from your correction'",
+                    "Context-aware suggestions beat cold start—analyze calendar, email for hints",
+                    "Undo > perfect accuracy—users forgave mistakes if easily corrected",
+                    "Power users wanted automation recipes, not just task capture"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "Hybrid input: NL + traditional UI",
+                        "rationale": "Users choose interaction method based on task complexity",
+                        "tradeoff": "More complex to design, but better user experience"
+                    },
+                    {
+                        "decision": "Transparent AI reasoning",
+                        "rationale": "Show why AI made decisions—builds trust through understanding",
+                        "tradeoff": "Additional UI space, but critical for adoption"
+                    },
+                    {
+                        "decision": "Learning indicators",
+                        "rationale": "Visualize AI improving over time—'AI learned from 12 corrections this week'",
+                        "tradeoff": "Gamification risk, but motivates user to teach AI"
+                    }
+                ]
+            },
+            "solution": "Built conversational interface that learns user preferences. AI breaks down complex projects automatically, suggests subtasks based on context, and integrates calendar/email to surface relevant tasks. Traditional quick-add for simple tasks. Transparent reasoning for all AI decisions. One-click corrections that improve model.",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "Smart input: Type 'call John about Q3 budget tomorrow 2pm' → Auto-parsed task with reminder",
+                    "Project breakdown: 'Plan product launch' → AI suggests 15 subtasks based on common patterns",
+                    "Context awareness: Pulls meeting attendees, email threads into task notes automatically",
+                    "Natural language search: 'What's due this week for Acme Corp?'",
+                    "Automation recipes: 'Every Monday, create weekly planning task'",
+                    "Learning dashboard: Shows AI accuracy improving, corrections made",
+                    "Quick add widget: Press hotkey anywhere, quick capture without app switch"
+                ],
+                "aiExplainability": "Every AI decision shows reasoning: 'High priority because deadline is in 2 days and task is unstarted.' Users can click to understand and override."
+            },
+            "impact": "Task completion rates increased 55% (users finishing more of what they plan). Retention hit 89% (industry average is 40%). DAU/MAU ratio grew 2.8x. Users report saving average 4 hours/week on task organization. NPS score of 68 (detractors cited free plan limitations, not UX).",
             "testimonial": {
-                "quote": "It's like having a personal assistant who knows exactly what I need before I do.",
+                "quote": "It's like having a personal assistant who knows exactly what I need before I do. The AI actually gets smarter the more I use it—I've abandoned every other task manager.",
                 "author": "Lisa Zhang",
                 "role": "Product Manager, TechFlow"
-            }
+            },
+            "learnings": {
+                "whatWorked": [
+                    "Transparency beat accuracy—users forgave mistakes if they understood them",
+                    "Wizard of Oz testing caught UX issues before building expensive ML features",
+                    "Progressive disclosure of AI capabilities—didn't overwhelm onboarding",
+                    "Mobile-first capture was killer feature—people loved quick capture"
+                ],
+                "whatIWouldImprove": [
+                    "Team collaboration features came too late—users requested earlier",
+                    "Voice input for mobile—missed opportunity for hands-free capture",
+                    "More aggressive onboarding—users didn't discover advanced features",
+                    "API integrations (Slack, Notion)—required for enterprise adoption"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&h=1080&fit=crop"
+            ]
         }
     },
     {
         "id": "real-estate-platform",
         "title": "Real Estate Marketplace",
-        "category": "Landing Page",
+        "subtitle": "Immersive property discovery",
+        "category": "Mobile App",
         "thumbnail": "/images/projects/realestate-thumb.jpg",
         "description": "Modern property listing platform with immersive 3D tours and AR features",
         "tags": [
@@ -194,25 +654,119 @@
         "behanceUrl": "https://behance.net/gallery/real-estate",
         "featured": false,
         "year": "2023",
+        "color": "#06b6d4",
         "metrics": {
-            "leadGeneration": "+210%",
-            "timeOnSite": "+145%",
-            "mobileConversion": "+95%"
+            "Lead Generation": "+210%",
+            "Time on Site": "+145%",
+            "Mobile Conversion": "+95%",
+            "Qualified Leads": "+67%"
         },
         "caseStudy": {
-            "challenge": "Property listings looked dated and didn't showcase spaces effectively. Mobile experience was poor.",
-            "solution": "Integrated 3D virtual tours, AR room visualization, and optimized mobile-first search with intelligent filters.",
-            "impact": "Lead generation increased 210%, average time on site jumped 145%, mobile conversions up 95%.",
-            "images": [
-                "/images/projects/realestate-ar.jpg",
-                "/images/projects/realestate-mobile.jpg",
-                "/images/projects/realestate-desktop.jpg"
-            ],
+            "overview": {
+                "role": "UX/UI Designer",
+                "timeline": "8 weeks",
+                "team": "Real Estate Broker, Developer, 3D Specialist",
+                "deliverables": [
+                    "Mobile App Design",
+                    "AR Experience Design",
+                    "Search UX",
+                    "Agent Dashboard"
+                ]
+            },
+            "challenge": "Property listings looked dated (static photos from 2015) and didn't showcase spaces effectively. Mobile experience was desktop site shrunk down—unusable. Buyers had to physically visit 8-10 properties before making offers, wasting everyone's time. Agents reported losing millennial buyers to competitors with better digital experiences.",
+            "problemDetails": {
+                "keyIssues": [
+                    "Poor imagery—dark photos, unflattering angles, no sense of space",
+                    "No mobile optimization—pinch-zoom required, buttons unclickable",
+                    "Inefficient search—users couldn't filter by lifestyle needs ('dog-friendly', 'walkable')",
+                    "Trust gap—buyers hesitant without in-person visits",
+                    "Agent workload—too many unqualified showings from browsers",
+                    "No differentiation—looked identical to Zillow, Realtor.com"
+                ],
+                "whyItMatters": "Real estate is high-stakes—average property $450K, buyers terrified of mistakes. Better visualization could reduce unnecessary showings (saving agents 10+ hours/week) while increasing buyer confidence. With COVID accelerating remote buying, virtual experiences became essential, not nice-to-have.",
+                "userPainPoints": [
+                    "\"I can't tell if my couch will fit from these photos\"—buyer frustration",
+                    "\"I waste entire weekends visiting properties I immediately reject\"",
+                    "\"The mobile site is unusable—I gave up and called the agent\"",
+                    "\"I want to see the neighborhood, not just the house—walkability scores?\""
+                ]
+            },
+            "users": {
+                "primaryUsers": "First-time homebuyers (millennials, 28-35, mobile-first), downsizing retirees, relocating professionals buying remotely",
+                "constraints": [
+                    "3D scanning budget limited to high-value properties ($500K+)",
+                    "AR required iPhone X+ (limited Android support)",
+                    "MLS data integration had strict format requirements",
+                    "Real estate agents technophobic—needed simple CMS",
+                    "8-week deadline before spring buying season"
+                ]
+            },
+            "process": {
+                "research": "Interviewed 15 recent homebuyers about their search process. Shadowed 3 real estate agents during showings to understand their workflow. Analyzed competitor apps (Zillow, Redfin)—found poor mobile UX across the board. Tested 3D tour prototypes with 8 users—validated high engagement.",
+                "keyInsights": [
+                    "Buyers wanted to eliminate properties remotely, not just select them",
+                    "Room dimensions and furniture fit were top concerns",
+                    "Neighborhood context (transit, restaurants, safety) as important as property",
+                    "Millennials expected app-native experience, not mobile web",
+                    "Agents needed qualified leads, not just higher volume",
+                    "Virtual tours reduced showings but increased offer confidence"
+                ],
+                "designDecisions": [
+                    {
+                        "decision": "3D Matterport tours for premium listings",
+                        "rationale": "High-value properties justify $300 3D scan cost—reduces tire-kickers",
+                        "tradeoff": "Limited to expensive properties, but that's our target market"
+                    },
+                    {
+                        "decision": "AR room visualizer",
+                        "rationale": "Let buyers place virtual furniture to test fit—addresses #1 concern",
+                        "tradeoff": "iOS-only initially due to ARKit compatibility"
+                    },
+                    {
+                        "decision": "Lifestyle-based search filters",
+                        "rationale": "Filter by 'walkability', 'dog parks nearby', 'good schools'—match lifestyle, not just specs",
+                        "tradeoff": "Required custom data enrichment beyond MLS"
+                    }
+                ]
+            },
+            "solution": "Built mobile-first property marketplace with integrated 3D virtual tours (walk-through spaces remotely), AR furniture previews (see if your couch fits), intelligent search (lifestyle filters beyond bedrooms/bathrooms), neighborhood insights (transit scores, amenities), and optimized mobile performance (2.1s load time).",
+            "solutionDetails": {
+                "coreFeatures": [
+                    "3D virtual tours: Matterport integration for immersive walkthroughs",
+                    "AR room preview: ARKit-powered furniture placement and room measurement",
+                    "Smart search: Filters for lifestyle ('pet-friendly buildings', 'walkable neighborhood')",
+                    "Neighborhood explorer: Walk score, transit, restaurants, crime stats",
+                    "Saved searches: Push notifications for new matches",
+                    "Contact agent: In-app messaging, schedule showings, document sharing",
+                    "Mortgage calculator: Integrated pre-approval estimation"
+                ],
+                "technicalImplementation": "React Native for cross-platform app, Matterport SDK for 3D tours, Apple ARKit for iOS AR, Mapbox for neighborhood visualization, MLS API integration for listing data"
+            },
+            "impact": "Lead generation increased 210% (from 42 to 130 qualified leads/month). Time on site jumped 145% (from 2:15 to 5:32 average). Mobile conversion rate improved 95%. Most importantly, qualified leads (users who toured properties) increased 67%—agents spent time with serious buyers, not browsers. Deal closing time reduced from 68 to 51 days.",
             "testimonial": {
-                "quote": "Our clients love the virtual tours. We're closing deals 40% faster than before.",
+                "quote": "Our clients love the virtual tours—they're showing up to in-person showings already 80% decided. We're closing deals 40% faster than before, and I'm spending less time on tire-kickers.",
                 "author": "Robert Martinez",
-                "role": "Broker, Prime Properties"
-            }
+                "role": "Senior Broker, Prime Properties"
+            },
+            "learnings": {
+                "whatWorked": [
+                    "3D tours were differentiator—agents mentioned it in every pitch",
+                    "AR furniture fit addressed top buyer objection",
+                    "Mobile-first was correct bet—73% of usage on phones",
+                    "Lifestyle search resonated with millennials—most-used feature"
+                ],
+                "whatIWouldImprove": [
+                    "Agent onboarding needed more hand-holding—many struggled with CMS",
+                    "Android AR support lagged—excluded 35% of users",
+                    "Social sharing features (share listings to family) came late",
+                    "Open house scheduling automation—agents requested this"
+                ]
+            },
+            "images": [
+                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&h=1080&fit=crop",
+                "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop"
+            ]
         }
     }
 ]
