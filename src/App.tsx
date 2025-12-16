@@ -50,7 +50,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 const App = () => {
   const helmetContext = {};
   const seo = generateSEO({
-    title: 'Creative Portfolio',
+    title: 'Rishu Kumar Sharma',
     description:
       'A creative portfolio showcasing design and development work. Explore projects, learn about my process, and get in touch.',
   });

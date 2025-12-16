@@ -4,6 +4,7 @@ import { FloatingLabelInput } from '../components/ui/FloatingLabelInput';
 import { H2, Body, Caption } from '../components/ui';
 import { Container } from '../components/layout';
 import { SectionReveal } from '../components/ui/SectionReveal';
+import profileData from '../data/profile.json';
 
 interface FormData {
     name: string;
@@ -78,26 +79,26 @@ export const PremiumContact = () => {
         {
             icon: '📧',
             label: 'Email',
-            value: 'hello@example.com',
-            href: 'mailto:hello@example.com',
+            value: profileData.contact.email,
+            href: `mailto:${profileData.contact.email}`,
         },
         {
             icon: '💼',
             label: 'LinkedIn',
             value: 'Connect with me',
-            href: 'https://linkedin.com',
+            href: `https://${profileData.contact.linkedin}`,
         },
         {
             icon: '🎨',
             label: 'Behance',
             value: 'View portfolio',
-            href: 'https://behance.net',
+            href: `https://${profileData.contact.behance}`,
         },
         {
-            icon: '📅',
-            label: 'Schedule Call',
-            value: 'Book a meeting',
-            href: 'https://calendly.com',
+            icon: '📞',
+            label: 'Phone',
+            value: profileData.contact.phone,
+            href: `tel:${profileData.contact.phone}`,
         },
     ];
 

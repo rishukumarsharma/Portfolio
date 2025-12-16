@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'fram
 import { useRef } from 'react';
 import { Container } from '../components/layout';
 import { Button } from '../components/ui';
+import profileData from '../data/profile.json';
 
 export const Hero = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -150,7 +151,7 @@ export const Hero = () => {
                                     repeat: Infinity,
                                 }}
                             />
-                            <span className="text-sm font-medium text-neutral-200 tracking-wide">Available for new projects</span>
+                            <span className="text-sm font-medium text-neutral-200 tracking-wide">{profileData.availability.status}</span>
                         </motion.div>
 
                         {/* Heading - staggered word animation */}
@@ -161,7 +162,7 @@ export const Hero = () => {
                                 transition={{ duration: 0.3 }}
                                 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight"
                             >
-                                {['I', 'create'].map((word, i) => (
+                                {['Designing', 'intuitive'].map((word, i) => (
                                     <motion.span
                                         key={i}
                                         initial={{ opacity: 0, y: 50 }}
@@ -204,7 +205,7 @@ export const Hero = () => {
                                     />
                                 </motion.span>
                                 <br />
-                                {['that', 'inspire'].map((word, i) => (
+                                {['for', 'B2B & D2C'].map((word, i) => (
                                     <motion.span
                                         key={i}
                                         initial={{ opacity: 0, y: 50 }}
@@ -229,8 +230,7 @@ export const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
                             className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed"
                         >
-                            A product designer and developer focused on crafting beautiful,
-                            user-centered digital products that solve real problems.
+                            {profileData.tagline}
                         </motion.p>
 
                         {/* CTAs with magnetic effect */}
@@ -290,9 +290,9 @@ export const Hero = () => {
                             className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
                         >
                             {[
-                                { value: '50+', label: 'Projects Delivered' },
-                                { value: '5+', label: 'Years Experience' },
-                                { value: '100%', label: 'Client Satisfaction' },
+                                { value: `${profileData.stats.experience}`, label: 'Years Experience' },
+                                { value: `${profileData.stats.projects}`, label: 'Projects Delivered' },
+                                { value: `${profileData.stats.satisfaction}`, label: 'Client Satisfaction' },
                             ].map((stat, i) => (
                                 <motion.div
                                     key={i}

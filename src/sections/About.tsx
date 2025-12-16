@@ -1,18 +1,22 @@
 import { motion } from 'framer-motion';
 import { Container } from '../components/layout';
 import { ScrollReveal } from '../components/animations';
+import profileData from '../data/profile.json';
+import skillsData from '../data/skills.json';
 
+// Convert skills data to array format
 const skills = [
-    { category: 'Design', items: ['UX Design', 'UI Design', 'Design Systems', 'Prototyping'] },
-    { category: 'Development', items: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS'] },
-    { category: 'Tools', items: ['Figma', 'Framer', 'VS Code', 'Git'] },
+    { category: skillsData.designTools.category, items: skillsData.designTools.items.slice(0, 7) },
+    { category: skillsData.designExpertise.category, items: skillsData.designExpertise.items.slice(0, 7) },
+    { category: skillsData.uxMethods.category, items: skillsData.uxMethods.items.slice(0, 8) },
+    { category: skillsData.productKnowledge.category, items: skillsData.productKnowledge.items },
 ];
 
 const stats = [
-    { value: '5+', label: 'Years Experience' },
-    { value: '50+', label: 'Projects Completed' },
-    { value: '30+', label: 'Happy Clients' },
-    { value: '3', label: 'Design Awards' },
+    { value: `${profileData.stats.experience}`, label: 'Years Experience' },
+    { value: `${profileData.stats.projects}`, label: 'Projects Completed' },
+    { value: `${profileData.stats.companies}`, label: 'Companies' },
+    { value: `${profileData.stats.satisfaction}`, label: 'Client Satisfaction' },
 ];
 
 export const About = () => {
@@ -30,25 +34,22 @@ export const About = () => {
 
                         <ScrollReveal animation="fadeUp" delay={0.1}>
                             <h2 className="text-display-sm md:text-display-md font-bold text-neutral-50 mb-6">
-                                Crafting digital experiences with purpose
+                                {profileData.name}
                             </h2>
                         </ScrollReveal>
 
                         <ScrollReveal animation="fadeUp" delay={0.2}>
                             <p className="text-body-lg text-neutral-400 mb-6">
-                                I'm a product designer and developer with a passion for creating
-                                beautiful, functional digital experiences. With over 5 years of
-                                experience, I specialize in bridging the gap between design and
-                                development.
+                                {profileData.summary}
                             </p>
                         </ScrollReveal>
 
                         <ScrollReveal animation="fadeUp" delay={0.3}>
                             <p className="text-body-md text-neutral-400 mb-8">
-                                My approach combines strategic thinking with creative execution,
-                                ensuring every project delivers both aesthetic appeal and tangible
-                                results. I believe in user-centered design that solves real problems
-                                while pushing creative boundaries.
+                                Based in {profileData.location}, I specialize in creating user-centered designs
+                                that solve real problems while delivering measurable business value. My approach
+                                combines thorough UX research with modern design practices to create products
+                                that users love.
                             </p>
                         </ScrollReveal>
 

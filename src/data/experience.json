@@ -1,0 +1,64 @@
+[
+    {
+        "id": "pointo-ux-designer-1",
+        "company": "Pointo",
+        "position": "UX Designer 1",
+        "location": "Bengaluru, Karnataka, India",
+        "period": "August 2025 – Present",
+        "type": "Full-time",
+        "current": true,
+        "responsibilities": [
+            "Designed and delivered a unified D2C mobile application integrating battery tracking, customer operations, field agent management, and payment systems, serving multiple user personas",
+            "Conducted comprehensive UX research and usability testing to validate design decisions and improve user flows, resulting in enhanced customer satisfaction",
+            "Collaborated with cross-functional teams including product managers, developers, and stakeholders to ensure design feasibility and alignment with business objectives"
+        ],
+        "skills": [
+            "UX Research",
+            "Usability Testing",
+            "Mobile App Design",
+            "Multi-persona Design",
+            "Cross-functional Collaboration"
+        ]
+    },
+    {
+        "id": "pointo-ui-ux-designer",
+        "company": "Pointo",
+        "position": "UI UX Designer",
+        "location": "Greater Kolkata Area",
+        "period": "May 2025 – August 2025",
+        "type": "Full-time",
+        "current": false,
+        "responsibilities": [
+            "Developed responsive UI designs optimized for multiple screen sizes and devices, ensuring seamless user experiences across platforms",
+            "Implemented design thinking methodologies to solve complex user problems and improve product usability"
+        ],
+        "skills": [
+            "Responsive Design",
+            "Design Thinking",
+            "UI Design",
+            "Multi-platform Design"
+        ]
+    },
+    {
+        "id": "miclient-ux-designer",
+        "company": "MiCLIENT",
+        "position": "User Experience Designer",
+        "location": "Gurugram, Haryana, India",
+        "period": "April 2024 – February 2025",
+        "type": "Full-time",
+        "current": false,
+        "responsibilities": [
+            "Designed intuitive interfaces for B2B SaaS and CRM products, focusing on improving workflow efficiency and user engagement",
+            "Conducted user research including interviews, surveys, and competitive analysis to inform design strategy and product roadmap",
+            "Created detailed user personas, journey maps, and information architecture to guide design decisions",
+            "Participated in agile sprints, collaborating closely with engineering teams to ensure accurate implementation of designs"
+        ],
+        "skills": [
+            "B2B SaaS",
+            "CRM Design",
+            "User Research",
+            "Information Architecture",
+            "Agile Methodology"
+        ]
+    }
+]
