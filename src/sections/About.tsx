@@ -81,11 +81,11 @@ export const About = () => {
                     <div className="relative">
                         <ScrollReveal animation="fadeLeft" delay={0.2}>
                             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-800">
-                                {/* Placeholder for profile image */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-accent-500/20 to-neutral-900" />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <span className="text-neutral-500">Profile Image</span>
-                                </div>
+                                <img
+                                    src={profileData.profileImage}
+                                    alt={profileData.name}
+                                    className="absolute inset-0 w-full h-full object-cover"
+                                />
                             </div>
                         </ScrollReveal>
 

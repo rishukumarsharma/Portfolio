@@ -126,16 +126,20 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                     animate={{ scale: isHovered ? 1.05 : 1 }}
                     transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
-                    {/* Placeholder gradient */}
+                    {/* Project thumbnail image */}
+                    <img
+                        src={project.thumbnail}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                    {/* Subtle gradient overlay */}
                     <div
-                        className="w-full h-full"
+                        className="absolute inset-0 opacity-20"
                         style={{
-                            background: `linear-gradient(135deg, ${project.color}40, ${project.color}10)`,
+                            background: `linear-gradient(135deg, ${project.color}80, transparent)`,
                         }}
                     />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-neutral-500">Project Image</span>
-                    </div>
                 </motion.div>
 
                 {/* Hover overlay */}

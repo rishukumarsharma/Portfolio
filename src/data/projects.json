@@ -4,7 +4,7 @@
         "title": "Enterprise CRM Redesign",
         "subtitle": "Transforming sales team productivity",
         "category": "Web Application",
-        "thumbnail": "/images/projects/crm-thumb.jpg",
+        "thumbnail": "/images/projects/dashboard-analytics.jpg",
         "description": "Overhauling a legacy CRM system to improve sales team productivity and customer insights",
         "tags": [
             "UX Research",
@@ -117,9 +117,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&h=1080&fit=crop"
+                "/images/projects/dashboard-analytics.jpg",
+                "/images/projects/battery-tracking-1.jpg",
+                "/images/projects/battery-tracking-2.jpg"
             ]
         }
     },
@@ -128,7 +128,7 @@
         "title": "FinTech SaaS Dashboard",
         "subtitle": "Democratizing financial analytics",
         "category": "Web Application",
-        "thumbnail": "/images/projects/fintech-thumb.jpg",
+        "thumbnail": "/images/projects/battery-tracking-1.jpg",
         "description": "Building an intuitive dashboard for financial analytics and automated reporting",
         "tags": [
             "SaaS",
@@ -244,9 +244,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&h=1080&fit=crop"
+                "/images/projects/battery-tracking-1.jpg",
+                "/images/projects/battery-tracking-2.jpg",
+                "/images/projects/ecommerce-product.jpg"
             ]
         }
     },
@@ -255,7 +255,7 @@
         "title": "E-commerce Landing Page Redesign",
         "subtitle": "Conversion-focused redesign",
         "category": "Web Design",
-        "thumbnail": "/images/projects/ecom-thumb.jpg",
+        "thumbnail": "/images/projects/ecommerce-listing.jpg",
         "description": "High-converting landing page design that increased conversions by 180%",
         "tags": [
             "Conversion Optimization",
@@ -372,9 +372,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1547658719-da2b51169166?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1545235617-7a424c1a60cc?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=1920&h=1080&fit=crop"
+                "/images/projects/ecommerce-listing.jpg",
+                "/images/projects/ecommerce-product.jpg",
+                "/images/projects/battery-tracking-2.jpg"
             ]
         }
     },
