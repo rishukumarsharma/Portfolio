@@ -120,7 +120,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
             onClick={handleClick}
         >
             {/* Thumbnail */}
-            <div className="relative aspect-[16/10] overflow-hidden bg-neutral-800">
+            <div className="relative aspect-16/10 overflow-hidden bg-neutral-800">
                 <motion.div
                     className="absolute inset-0"
                     animate={{ scale: isHovered ? 1.05 : 1 }}
