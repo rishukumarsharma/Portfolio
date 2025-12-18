@@ -4,7 +4,7 @@
         "title": "Enterprise CRM Redesign",
         "subtitle": "Transforming sales team productivity",
         "category": "Web Application",
-        "thumbnail": "/images/projects/dashboard-analytics.jpg",
+        "thumbnail": "/images/projects/8.jpg",
         "description": "Overhauling a legacy CRM system to improve sales team productivity and customer insights",
         "tags": [
             "UX Research",
@@ -17,10 +17,10 @@
         "year": "2024",
         "color": "#3b82f6",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+4"
+            "/images/projects/8.jpg",
+            "/images/projects/6.jpg",
+            "/images/projects/7.jpg",
+            "/images/projects/1.jpg"
         ],
         "brief": {
             "problem": "Sales teams wasted 2-3 hours daily navigating a fragmented CRM with 7+ disconnected screens, causing $2M in lost productivity.",
@@ -155,9 +155,9 @@
                 ]
             },
             "images": [
-                "/images/projects/dashboard-analytics.jpg",
-                "/images/projects/battery-tracking-1.jpg",
-                "/images/projects/battery-tracking-2.jpg"
+                "/images/projects/8.jpg",
+                "/images/projects/6.jpg",
+                "/images/projects/7.jpg"
             ]
         }
     },
@@ -166,7 +166,7 @@
         "title": "FinTech SaaS Dashboard",
         "subtitle": "Democratizing financial analytics",
         "category": "Web Application",
-        "thumbnail": "/images/projects/battery-tracking-1.jpg",
+        "thumbnail": "/images/projects/6.jpg",
         "description": "Building an intuitive dashboard for financial analytics and automated reporting",
         "tags": [
             "SaaS",
@@ -179,9 +179,9 @@
         "year": "2024",
         "color": "#10b981",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3"
+            "/images/projects/6.jpg",
+            "/images/projects/7.jpg",
+            "/images/projects/10.jpg"
         ],
         "metrics": {
             "User Growth": "+125%",
@@ -287,9 +287,9 @@
                 ]
             },
             "images": [
-                "/images/projects/battery-tracking-1.jpg",
-                "/images/projects/battery-tracking-2.jpg",
-                "/images/projects/ecommerce-product.jpg"
+                "/images/projects/6.jpg",
+                "/images/projects/7.jpg",
+                "/images/projects/10.jpg"
             ]
         }
     },
@@ -298,7 +298,7 @@
         "title": "E-commerce Landing Page Redesign",
         "subtitle": "Conversion-focused redesign",
         "category": "Web Design",
-        "thumbnail": "/images/projects/ecommerce-listing.jpg",
+        "thumbnail": "/images/projects/9.jpg",
         "description": "High-converting landing page design that increased conversions by 180%",
         "tags": [
             "Conversion Optimization",
@@ -311,10 +311,10 @@
         "year": "2024",
         "color": "#8b5cf6",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+4"
+            "/images/projects/9.jpg",
+            "/images/projects/10.jpg",
+            "/images/projects/7.jpg",
+            "/images/projects/2.jpg"
         ],
         "metrics": {
             "Conversion Rate": "2.1% → 5.9%",
@@ -421,9 +421,9 @@
                 ]
             },
             "images": [
-                "/images/projects/ecommerce-listing.jpg",
-                "/images/projects/ecommerce-product.jpg",
-                "/images/projects/battery-tracking-2.jpg"
+                "/images/projects/9.jpg",
+                "/images/projects/10.jpg",
+                "/images/projects/7.jpg"
             ]
         }
     },
@@ -432,7 +432,7 @@
         "title": "Healthcare Patient Portal",
         "subtitle": "Accessible healthcare for all",
         "category": "Web Application",
-        "thumbnail": "/images/projects/health-thumb.jpg",
+        "thumbnail": "/images/projects/4.jpg",
         "description": "HIPAA-compliant patient portal focusing on accessibility and ease of use",
         "tags": [
             "Healthcare",
@@ -445,9 +445,9 @@
         "year": "2023",
         "color": "#ef4444",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3"
+            "/images/projects/4.jpg",
+            "/images/projects/5.jpg",
+            "/images/projects/1.jpg"
         ],
         "metrics": {
             "Accessibility": "98/100",
@@ -555,9 +555,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1920&h=1080&fit=crop"
+                "/images/projects/4.jpg",
+                "/images/projects/5.jpg",
+                "/images/projects/1.jpg"
             ]
         }
     },
@@ -566,7 +566,7 @@
         "title": "AI Productivity Assistant",
         "subtitle": "Your intelligent task partner",
         "category": "Web Application",
-        "thumbnail": "/images/projects/ai-thumb.jpg",
+        "thumbnail": "/images/projects/3.jpg",
         "description": "AI-powered task management and productivity platform with natural language interface",
         "tags": [
             "AI/ML",
@@ -579,10 +579,10 @@
         "year": "2024",
         "color": "#f59e0b",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+4"
+            "/images/projects/3.jpg",
+            "/images/projects/2.jpg",
+            "/images/projects/8.jpg",
+            "/images/projects/1.jpg"
         ],
         "metrics": {
             "Task Completion": "+55%",
@@ -692,9 +692,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&h=1080&fit=crop"
+                "/images/projects/3.jpg",
+                "/images/projects/2.jpg",
+                "/images/projects/8.jpg"
             ]
         }
     },
@@ -703,7 +703,7 @@
         "title": "Real Estate Marketplace",
         "subtitle": "Immersive property discovery",
         "category": "Mobile App",
-        "thumbnail": "/images/projects/realestate-thumb.jpg",
+        "thumbnail": "/images/projects/5.jpg",
         "description": "Modern property listing platform with immersive 3D tours and AR features",
         "tags": [
             "Real Estate",
@@ -716,9 +716,9 @@
         "year": "2023",
         "color": "#06b6d4",
         "imageShowcase": [
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+1",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+2",
-            "https://placehold.co/1200x800/e2e8f0/64748b?text=Product+View+3"
+            "/images/projects/5.jpg",
+            "/images/projects/4.jpg",
+            "/images/projects/3.jpg"
         ],
         "metrics": {
             "Lead Generation": "+210%",
@@ -828,9 +828,9 @@
                 ]
             },
             "images": [
-                "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1920&h=1080&fit=crop",
-                "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=1080&fit=crop"
+                "/images/projects/5.jpg",
+                "/images/projects/4.jpg",
+                "/images/projects/3.jpg"
             ]
         }
     }

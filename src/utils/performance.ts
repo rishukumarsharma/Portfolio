@@ -2,6 +2,8 @@
  * Performance Utilities
  */
 
+import { useState, useEffect } from 'react';
+
 /**
  * Debounce function for scroll and resize listeners
  */
@@ -49,11 +51,11 @@ export const prefersReducedMotion = (): boolean => {
 export const usePrefersReducedMotion = () => {
     if (typeof window === 'undefined') return false;
 
-    const [prefersReduced, setPrefersReduced] = React.useState(
+    const [prefersReduced, setPrefersReduced] = useState(
         window.matchMedia('(prefers-reduced-motion: reduce)').matches
     );
 
-    React.useEffect(() => {
+    useEffect(() => {
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
         const handleChange = () => setPrefersReduced(mediaQuery.matches);
 
@@ -129,9 +131,6 @@ export const requestIdleCallback =
 export const getAnimationDuration = (duration: number): number => {
     return prefersReducedMotion() ? 0 : duration;
 };
-
-// Re-export React for the hook
-import * as React from 'react';
 
 export default {
     debounce,

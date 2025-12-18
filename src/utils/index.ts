@@ -21,7 +21,4 @@ export {
     createStaggerAnimation,
     createFadeAnimation,
 } from './animations';
-export * from './animations';
-export { default as animations } from './animations';
-export { default as motionSystem } from './animations';
 export { cn } from './cn';
