@@ -33,3 +33,7 @@ export { ParallaxImage } from './ParallaxImage';
 export { FloatingBackButton } from './FloatingBackButton';
 export { ProjectNavigation } from './ProjectNavigation';
 export { FloatingLabelInput } from './FloatingLabelInput';
+export { ImageShowcase } from './ImageShowcase';
+export { ProjectBrief } from './ProjectBrief';
+export { BeforeAfterSlider } from './BeforeAfterSlider';
+export { ProcessGallery } from './ProcessGallery';
