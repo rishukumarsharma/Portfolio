@@ -18,7 +18,8 @@ export const ProjectBrief = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="my-16 p-8 md:p-10 bg-gradient-to-br from-accent-500/10 via-neutral-900 to-neutral-900 rounded-2xl border border-accent-500/20 shadow-xl">
+      className="my-16 p-8 md:p-10 bg-gradient-to-br from-accent-500/10 via-neutral-900 to-neutral-900 rounded-2xl border border-accent-500/20 shadow-xl"
+    >
       <Caption className="text-accent-400 uppercase tracking-wider mb-6 block">
         TL;DR
       </Caption>
@@ -32,7 +33,8 @@ export const ProjectBrief = ({
                 className="w-5 h-5 text-red-400"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -54,7 +56,8 @@ export const ProjectBrief = ({
                 className="w-5 h-5 text-blue-400"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -76,7 +79,8 @@ export const ProjectBrief = ({
                 className="w-5 h-5 text-green-400"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

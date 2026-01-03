@@ -10,6 +10,18 @@ import { Container } from "../components/layout";
 import { Button } from "../components/ui";
 import profileData from "../data/profile.json";
 
+// Pre-computed particle positions to avoid Math.random during render
+const PARTICLE_DATA = [
+  { left: 12, top: 25, duration: 3.2, delay: 0.1 },
+  { left: 67, top: 15, duration: 4.1, delay: 0.8 },
+  { left: 34, top: 78, duration: 3.8, delay: 1.2 },
+  { left: 89, top: 42, duration: 4.5, delay: 0.5 },
+  { left: 23, top: 56, duration: 3.5, delay: 1.8 },
+  { left: 78, top: 89, duration: 4.2, delay: 0.3 },
+  { left: 45, top: 12, duration: 3.9, delay: 1.5 },
+  { left: 56, top: 67, duration: 4.8, delay: 0.9 },
+];
+
 export const Hero = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -45,7 +57,8 @@ export const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
       {/* Enhanced background with mesh gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-950 via-neutral-900 to-neutral-950" />
 
@@ -117,22 +130,22 @@ export const Hero = () => {
       />
 
       {/* Floating particles */}
-      {[...Array(8)].map((_, i) => (
+      {PARTICLE_DATA.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-accent-400/30 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
           }}
           animate={{
             y: [0, -30, 0],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
           }}
         />
       ))}
@@ -155,7 +168,8 @@ export const Hero = () => {
                   "linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02))",
                 boxShadow:
                   "0 8px 32px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.1)",
-              }}>
+              }}
+            >
               <motion.span
                 className="w-2 h-2 bg-success-500 rounded-full"
                 animate={{
@@ -179,7 +193,8 @@ export const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
                 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight"
-                style={{ fontFamily: "var(--font-family-serif)" }}>
+                style={{ fontFamily: "var(--font-family-serif)" }}
+              >
                 {["Designing", "intuitive"].map((word, i) => (
                   <motion.span
                     key={i}
@@ -190,7 +205,8 @@ export const Hero = () => {
                       delay: 0.2 + i * 0.1,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="inline-block mr-4 text-white">
+                    className="inline-block mr-4 text-white"
+                  >
                     {word}
                   </motion.span>
                 ))}
@@ -203,12 +219,14 @@ export const Hero = () => {
                     delay: 0.4,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="inline-block relative">
+                  className="inline-block relative"
+                >
                   <span
                     className="bg-clip-text text-transparent bg-gradient-to-r from-accent-400 via-pink-400 to-accent-500"
                     style={{
                       backgroundSize: "200% auto",
-                    }}>
+                    }}
+                  >
                     digital experiences
                   </span>
                   {/* Underline decoration */}
@@ -234,7 +252,8 @@ export const Hero = () => {
                       delay: 0.5 + i * 0.1,
                       ease: [0.16, 1, 0.3, 1],
                     }}
-                    className="inline-block mr-4 text-white">
+                    className="inline-block mr-4 text-white"
+                  >
                     {word}
                   </motion.span>
                 ))}
@@ -250,7 +269,8 @@ export const Hero = () => {
                 delay: 0.8,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+              className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
               {profileData.tagline}
             </motion.p>
 
@@ -263,11 +283,13 @@ export const Hero = () => {
                 delay: 1.0,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="flex flex-wrap items-center justify-center gap-6">
+              className="flex flex-wrap items-center justify-center gap-6"
+            >
               <motion.div
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
-                style={{ x: magneticX, y: magneticY }}>
+                style={{ x: magneticX, y: magneticY }}
+              >
                 <Button
                   size="lg"
                   onClick={() => {
@@ -275,7 +297,8 @@ export const Hero = () => {
                       .querySelector("#work")
                       ?.scrollIntoView({ behavior: "smooth" });
                   }}
-                  className="group">
+                  className="group"
+                >
                   <span>View My Work</span>
                   <motion.svg
                     className="w-5 h-5"
@@ -283,7 +306,8 @@ export const Hero = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     animate={{ y: [0, 3, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}>
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -301,7 +325,8 @@ export const Hero = () => {
                     .querySelector("#contact")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="backdrop-blur-sm">
+                className="backdrop-blur-sm"
+              >
                 Get in Touch
               </Button>
             </motion.div>
@@ -311,7 +336,8 @@ export const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1.2 }}
-              className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto"
+            >
               {[
                 {
                   value: `${profileData.stats.experience}`,
@@ -331,7 +357,8 @@ export const Hero = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 1.3 + i * 0.1 }}
-                  className="text-center">
+                  className="text-center"
+                >
                   <div className="text-2xl md:text-3xl font-bold text-white mb-1">
                     {stat.value}
                   </div>
@@ -350,7 +377,8 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2">
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -359,7 +387,8 @@ export const Hero = () => {
             document
               .querySelector("#about")
               ?.scrollIntoView({ behavior: "smooth" });
-          }}>
+          }}
+        >
           <span className="text-xs text-neutral-500 uppercase tracking-widest font-medium group-hover:text-neutral-400 transition-colors">
             Scroll to explore
           </span>

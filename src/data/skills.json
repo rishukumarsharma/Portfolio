@@ -1,60 +1,60 @@
 {
-    "designTools": {
-        "category": "Design Tools",
-        "items": [
-            "Figma",
-            "Framer",
-            "Adobe XD",
-            "Sketch",
-            "InVision",
-            "Protopie",
-            "Adobe Creative Suite"
-        ]
-    },
-    "designExpertise": {
-        "category": "Design Expertise",
-        "items": [
-            "User Experience (UX) Design",
-            "UI Design",
-            "Mobile Application Design",
-            "Web Design",
-            "Responsive Design",
-            "Design Systems",
-            "Interaction Design"
-        ]
-    },
-    "uxMethods": {
-        "category": "UX Methods",
-        "items": [
-            "User Research",
-            "Usability Testing",
-            "User Interviews",
-            "Wireframing",
-            "Prototyping",
-            "Information Architecture",
-            "User Journey Mapping",
-            "A/B Testing"
-        ]
-    },
-    "productKnowledge": {
-        "category": "Product Knowledge",
-        "items": [
-            "B2B SaaS",
-            "D2C Products",
-            "CRM Platforms",
-            "E-commerce",
-            "Fintech",
-            "Mobile-first Design"
-        ]
-    },
-    "collaboration": {
-        "category": "Collaboration",
-        "items": [
-            "Agile/Scrum Workflows",
-            "Cross-functional Collaboration",
-            "Stakeholder Management",
-            "Design Handoff",
-            "Version Control (Git)"
-        ]
-    }
+  "designTools": {
+    "category": "Design Tools",
+    "items": [
+      "Figma",
+      "Framer",
+      "Adobe XD",
+      "Sketch",
+      "InVision",
+      "Protopie",
+      "Adobe Creative Suite"
+    ]
+  },
+  "designExpertise": {
+    "category": "Design Expertise",
+    "items": [
+      "User Experience (UX) Design",
+      "UI Design",
+      "Mobile Application Design",
+      "Web Design",
+      "Responsive Design",
+      "Design Systems",
+      "Interaction Design"
+    ]
+  },
+  "uxMethods": {
+    "category": "UX Methods",
+    "items": [
+      "User Research",
+      "Usability Testing",
+      "User Interviews",
+      "Wireframing",
+      "Prototyping",
+      "Information Architecture",
+      "User Journey Mapping",
+      "A/B Testing"
+    ]
+  },
+  "productKnowledge": {
+    "category": "Product Knowledge",
+    "items": [
+      "B2B SaaS",
+      "D2C Products",
+      "CRM Platforms",
+      "E-commerce",
+      "Fintech",
+      "Mobile-first Design"
+    ]
+  },
+  "collaboration": {
+    "category": "Collaboration",
+    "items": [
+      "Agile/Scrum Workflows",
+      "Cross-functional Collaboration",
+      "Stakeholder Management",
+      "Design Handoff",
+      "Version Control (Git)"
+    ]
+  }
 }

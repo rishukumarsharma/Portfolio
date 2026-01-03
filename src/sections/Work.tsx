@@ -76,7 +76,8 @@ export const Work = () => {
                     : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
                 }`}
                 whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}>
+                whileTap={{ scale: 0.98 }}
+              >
                 {category}
               </motion.button>
             ))}
@@ -93,7 +94,8 @@ export const Work = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}>
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+              >
                 <ProjectCard project={project} />
               </motion.div>
             ))}
@@ -123,13 +125,15 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       className="group overflow-hidden cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handleClick}>
+      onClick={handleClick}
+    >
       {/* Thumbnail */}
       <div className="relative aspect-16/10 overflow-hidden bg-neutral-800">
         <motion.div
           className="absolute inset-0"
           animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+        >
           {/* Project thumbnail image */}
           <img
             src={project.thumbnail}
@@ -151,18 +155,21 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           className="absolute inset-0 bg-neutral-950/60 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}>
+          transition={{ duration: 0.2 }}
+        >
           <motion.div
             className="px-6 py-3 bg-white text-neutral-950 rounded-full font-medium text-sm flex items-center gap-2"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}>
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
             View Project
             <svg
               className="w-4 h-4"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor">
+              stroke="currentColor"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -191,7 +198,8 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.tags.slice(0, 3).map((tag) => (
             <span
               key={tag}
-              className="px-2 py-1 text-xs text-neutral-400 bg-neutral-800 rounded">
+              className="px-2 py-1 text-xs text-neutral-400 bg-neutral-800 rounded"
+            >
               {tag}
             </span>
           ))}

@@ -41,13 +41,15 @@ export const ProjectsShowcase = () => {
             </Body>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent-500/30 transition-all duration-200">
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent-500/30 transition-all duration-200"
+            >
               Get in Touch
               <svg
                 className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor">
+                stroke="currentColor"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

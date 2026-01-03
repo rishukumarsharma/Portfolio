@@ -1,24 +1,24 @@
 {
-    "name": "Rishu Kumar Sharma",
-    "title": "UI/UX Designer",
-    "tagline": "Crafting intuitive digital experiences for B2B and D2C products",
-    "location": "Noida, Uttar Pradesh, India",
-    "profileImage": "/images/profile.jpg",
-    "contact": {
-        "phone": "7302418932",
-        "email": "rishu3826@gmail.com",
-        "linkedin": "linkedin.com/in/rishu-kumar-sharma",
-        "behance": "behance.net/rishukumar99"
-    },
-    "summary": "UI/UX Designer with 2+ years of experience in B2B and D2C products. Skilled in Figma, Framer, wireframes, prototypes, and responsive UI. Experienced in UX research, usability testing, and agile workflows. Led end-to-end design for Pointo's D2C battery platform and an e-rickshaw driver app with battery tracking and in-app purchases.",
-    "stats": {
-        "experience": "2+",
-        "projects": "5+",
-        "companies": "2",
-        "satisfaction": "100%"
-    },
-    "availability": {
-        "status": "Available for new projects",
-        "isOpen": true
-    }
+  "name": "Rishu Kumar Sharma",
+  "title": "UI/UX Designer",
+  "tagline": "Crafting intuitive digital experiences for B2B and D2C products",
+  "location": "Noida, Uttar Pradesh, India",
+  "profileImage": "/images/profile.jpg",
+  "contact": {
+    "phone": "7302418932",
+    "email": "rishu3826@gmail.com",
+    "linkedin": "linkedin.com/in/rishu-kumar-sharma",
+    "behance": "behance.net/rishukumar99"
+  },
+  "summary": "UI/UX Designer with 2+ years of experience in B2B and D2C products. Skilled in Figma, Framer, wireframes, prototypes, and responsive UI. Experienced in UX research, usability testing, and agile workflows. Led end-to-end design for Pointo's D2C battery platform and an e-rickshaw driver app with battery tracking and in-app purchases.",
+  "stats": {
+    "experience": "2+",
+    "projects": "5+",
+    "companies": "2",
+    "satisfaction": "100%"
+  },
+  "availability": {
+    "status": "Available for new projects",
+    "isOpen": true
+  }
 }

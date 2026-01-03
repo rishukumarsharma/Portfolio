@@ -117,10 +117,11 @@ export const ProjectGrid = ({
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-500",
                 activeCategory === category
                   ? "bg-accent-500 text-white shadow-lg shadow-accent-500/30"
-                  : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-neutral-100"
+                  : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700 hover:text-neutral-100",
               )}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}>
+              whileTap={{ scale: 0.95 }}
+            >
               {category}
               {category !== "All" && (
                 <span className="ml-2 opacity-60">
@@ -137,7 +138,8 @@ export const ProjectGrid = ({
         className={getLayoutClass()}
         variants={containerVariants}
         initial="hidden"
-        animate="visible">
+        animate="visible"
+      >
         <AnimatePresence mode="popLayout">
           {filteredProjects.map((project, index) => (
             <motion.article
@@ -150,11 +152,12 @@ export const ProjectGrid = ({
               className={cn(
                 "relative group overflow-hidden rounded-2xl bg-neutral-900 cursor-pointer",
                 layout === "bento" && getBentoClass(index),
-                layout === "masonry" && "break-inside-avoid mb-6"
+                layout === "masonry" && "break-inside-avoid mb-6",
               )}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              onClick={() => navigate(`/case-study/${project.id}`)}>
+              onClick={() => navigate(`/case-study/${project.id}`)}
+            >
               {/* Background Image */}
               <div className="absolute inset-0">
                 <motion.div
@@ -165,7 +168,8 @@ export const ProjectGrid = ({
                   transition={{
                     duration: 0.4,
                     ease: [0.16, 1, 0.3, 1] as const,
-                  }}>
+                  }}
+                >
                   <OptimizedImage
                     src={
                       project.thumbnail ||
@@ -199,11 +203,13 @@ export const ProjectGrid = ({
                     opacity: hoveredProject === project.id ? 1 : 0,
                     y: hoveredProject === project.id ? 0 : 10,
                   }}
-                  transition={{ duration: 0.3, delay: 0.1 }}>
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   {project.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs text-neutral-300 bg-neutral-800/80 backdrop-blur-sm rounded">
+                      className="px-2 py-1 text-xs text-neutral-300 bg-neutral-800/80 backdrop-blur-sm rounded"
+                    >
                       {tag}
                     </span>
                   ))}
@@ -222,7 +228,8 @@ export const ProjectGrid = ({
                     opacity: hoveredProject === project.id ? 1 : 0,
                     height: hoveredProject === project.id ? "auto" : 0,
                   }}
-                  transition={{ duration: 0.3 }}>
+                  transition={{ duration: 0.3 }}
+                >
                   {project.description}
                 </motion.p>
 
@@ -235,7 +242,8 @@ export const ProjectGrid = ({
                       opacity: hoveredProject === project.id ? 1 : 0,
                       y: hoveredProject === project.id ? 0 : 10,
                     }}
-                    transition={{ duration: 0.3, delay: 0.15 }}>
+                    transition={{ duration: 0.3, delay: 0.15 }}
+                  >
                     {Object.entries(project.metrics)
                       .slice(0, 2)
                       .map(([key, value]) => (
@@ -267,7 +275,8 @@ export const ProjectGrid = ({
                 style={{
                   pointerEvents:
                     hoveredProject === project.id ? "auto" : "none",
-                }}>
+                }}
+              >
                 <motion.div
                   className="px-6 py-3 bg-white text-neutral-950 rounded-full font-medium flex items-center gap-2"
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -275,13 +284,15 @@ export const ProjectGrid = ({
                     scale: hoveredProject === project.id ? 1 : 0.9,
                     opacity: hoveredProject === project.id ? 1 : 0,
                   }}
-                  transition={{ duration: 0.3, delay: 0.1 }}>
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
                   View Case Study
                   <svg
                     className="w-4 h-4"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor">
+                    stroke="currentColor"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -301,7 +312,8 @@ export const ProjectGrid = ({
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="text-center py-20">
+          className="text-center py-20"
+        >
           <p className="text-neutral-400 text-lg">
             No projects found in this category.
           </p>

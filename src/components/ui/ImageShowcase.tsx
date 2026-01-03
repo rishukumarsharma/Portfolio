@@ -12,7 +12,8 @@ export const ImageShowcase = ({ images, projectTitle }: ImageShowcaseProps) => {
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
       <h2 className="text-2xl md:text-3xl font-bold text-neutral-50 mb-8">
         Product Showcase
       </h2>
@@ -29,7 +30,8 @@ export const ImageShowcase = ({ images, projectTitle }: ImageShowcaseProps) => {
               delay: index * 0.1,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
+            className="group relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+          >
             <img
               src={image}
               alt={`${projectTitle} - View ${index + 1}`}

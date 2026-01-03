@@ -132,7 +132,8 @@ export const CaseStudy = () => {
                   delayChildren: 0.3,
                 },
               },
-            }}>
+            }}
+          >
             {project.tags.slice(0, 4).map((tag) => (
               <motion.span
                 key={tag}
@@ -140,7 +141,8 @@ export const CaseStudy = () => {
                   hidden: { opacity: 0, scale: 0.8 },
                   visible: { opacity: 1, scale: 1 },
                 }}
-                className="px-4 py-2 text-sm font-medium bg-neutral-800/80 backdrop-blur-sm text-neutral-200 rounded-full border border-neutral-700">
+                className="px-4 py-2 text-sm font-medium bg-neutral-800/80 backdrop-blur-sm text-neutral-200 rounded-full border border-neutral-700"
+              >
                 {tag}
               </motion.span>
             ))}
@@ -154,7 +156,8 @@ export const CaseStudy = () => {
               duration: 0.8,
               delay: 0.5,
               ease: [0.16, 1, 0.3, 1] as const,
-            }}>
+            }}
+          >
             <H1 className="mb-4">{project.title}</H1>
             {project.subtitle && (
               <Body size="lg" className="text-accent-400 mb-4">
@@ -263,7 +266,8 @@ export const CaseStudy = () => {
                         {caseStudy.overview.deliverables.map((deliverable) => (
                           <span
                             key={deliverable}
-                            className="px-3 py-1.5 text-sm bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700">
+                            className="px-3 py-1.5 text-sm bg-neutral-800 text-neutral-300 rounded-lg border border-neutral-700"
+                          >
                             {deliverable}
                           </span>
                         ))}
@@ -311,13 +315,14 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, x: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1 }}
-                              className="flex items-start gap-3 p-4 bg-neutral-900/50 rounded-lg border border-neutral-800">
+                              className="flex items-start gap-3 p-4 bg-neutral-900/50 rounded-lg border border-neutral-800"
+                            >
                               <div className="w-6 h-6 mt-1 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                                 <div className="w-2 h-2 bg-red-400 rounded-full" />
                               </div>
                               <Body className="text-neutral-300">{issue}</Body>
                             </motion.div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -351,14 +356,16 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.05 }}
-                              className="p-4 bg-neutral-900/70 rounded-lg border-l-4 border-accent-500">
+                              className="p-4 bg-neutral-900/70 rounded-lg border-l-4 border-accent-500"
+                            >
                               <Body
                                 size="sm"
-                                className="text-neutral-300 italic">
+                                className="text-neutral-300 italic"
+                              >
                                 "{painPoint}"
                               </Body>
                             </motion.div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -430,12 +437,13 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.05 }}
-                              className="p-4 bg-neutral-800/50 rounded-lg border border-neutral-700">
+                              className="p-4 bg-neutral-800/50 rounded-lg border border-neutral-700"
+                            >
                               <Body size="sm" className="text-neutral-300">
                                 {constraint}
                               </Body>
                             </motion.div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -482,7 +490,8 @@ export const CaseStudy = () => {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="flex items-start gap-3">
+                            className="flex items-start gap-3"
+                          >
                             <div className="w-6 h-6 mt-1 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                               <div className="w-2 h-2 bg-accent-400 rounded-full" />
                             </div>
@@ -508,7 +517,8 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, y: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1 }}
-                              className="p-6 bg-neutral-900/70 rounded-xl border border-neutral-800">
+                              className="p-6 bg-neutral-900/70 rounded-xl border border-neutral-800"
+                            >
                               <H3 className="text-lg text-accent-400 mb-3">
                                 {decision.decision}
                               </H3>
@@ -531,7 +541,7 @@ export const CaseStudy = () => {
                                 </div>
                               </div>
                             </motion.div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -596,7 +606,8 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, x: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.05 }}
-                              className="flex items-start gap-3 p-4 bg-neutral-800/50 rounded-lg border border-neutral-700">
+                              className="flex items-start gap-3 p-4 bg-neutral-800/50 rounded-lg border border-neutral-700"
+                            >
                               <div className="w-6 h-6 mt-1 bg-accent-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                                 ✓
                               </div>
@@ -604,7 +615,7 @@ export const CaseStudy = () => {
                                 {feature}
                               </Body>
                             </motion.div>
-                          )
+                          ),
                         )}
                       </div>
                     </div>
@@ -763,7 +774,8 @@ export const CaseStudy = () => {
                               whileInView={{ opacity: 1, x: 0 }}
                               viewport={{ once: true }}
                               transition={{ delay: index * 0.1 }}
-                              className="flex items-start gap-3">
+                              className="flex items-start gap-3"
+                            >
                               <div className="w-6 h-6 mt-1 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                                 <div className="w-2 h-2 bg-green-400 rounded-full" />
                               </div>
@@ -793,7 +805,8 @@ export const CaseStudy = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="flex items-start gap-3">
+                                className="flex items-start gap-3"
+                              >
                                 <div className="w-6 h-6 mt-1 bg-orange-500/20 rounded-full flex items-center justify-center flex-shrink-0">
                                   <div className="w-2 h-2 bg-orange-400 rounded-full" />
                                 </div>
@@ -801,7 +814,7 @@ export const CaseStudy = () => {
                                   {item}
                                 </Body>
                               </motion.div>
-                            )
+                            ),
                           )}
                         </div>
                       </div>

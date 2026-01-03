@@ -98,7 +98,8 @@ const App = () => {
               <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
                 <div className="text-neutral-500">Loading...</div>
               </div>
-            }>
+            }
+          >
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/demo" element={<ComponentsDemo />} />

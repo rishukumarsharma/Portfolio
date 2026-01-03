@@ -39,7 +39,8 @@ export const ProcessGallery = ({ images }: ProcessGalleryProps) => {
             className={`group relative overflow-hidden rounded-xl border bg-gradient-to-br ${
               categoryColors[image.category]
             } cursor-pointer`}
-            onClick={() => setSelectedImage(index)}>
+            onClick={() => setSelectedImage(index)}
+          >
             {/* Category Badge */}
             <div className="absolute top-4 left-4 z-10">
               <Caption className="px-3 py-1.5 bg-neutral-900/80 backdrop-blur-sm rounded-lg text-neutral-200 font-medium">
@@ -81,7 +82,8 @@ export const ProcessGallery = ({ images }: ProcessGalleryProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 bg-neutral-950/95 backdrop-blur-sm flex items-center justify-center p-4"
-          onClick={() => setSelectedImage(null)}>
+          onClick={() => setSelectedImage(null)}
+        >
           <div className="max-w-6xl w-full">
             <div className="relative">
               <img
@@ -105,7 +107,8 @@ export const ProcessGallery = ({ images }: ProcessGalleryProps) => {
                 e.stopPropagation();
                 setSelectedImage(null);
               }}
-              className="absolute top-4 right-4 w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center text-neutral-300 hover:bg-neutral-700 transition-colors">
+              className="absolute top-4 right-4 w-10 h-10 bg-neutral-800 rounded-full flex items-center justify-center text-neutral-300 hover:bg-neutral-700 transition-colors"
+            >
               ✕
             </button>
           </div>

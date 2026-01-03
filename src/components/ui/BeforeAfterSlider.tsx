@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Caption } from "./Typography";
 
@@ -17,7 +17,7 @@ export const BeforeAfterSlider = ({
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMove = (clientX: number) => {
+  const handleMove = useCallback((clientX: number) => {
     if (!containerRef.current) return;
 
     const rect = containerRef.current.getBoundingClientRect();
@@ -25,35 +25,41 @@ export const BeforeAfterSlider = ({
     const percentage = (x / rect.width) * 100;
 
     setSliderPosition(Math.max(0, Math.min(100, percentage)));
-  };
+  }, []);
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
       handleMove(e.clientX);
-    }
-  };
+    },
+    [handleMove],
+  );
 
-  const handleTouchMove = (e: TouchEvent) => {
-    if (isDragging && e.touches[0]) {
-      handleMove(e.touches[0].clientX);
-    }
-  };
+  const handleTouchMove = useCallback(
+    (e: TouchEvent) => {
+      if (e.touches[0]) {
+        handleMove(e.touches[0].clientX);
+      }
+    },
+    [handleMove],
+  );
+
+  const handleMouseUp = useCallback(() => setIsDragging(false), []);
 
   useEffect(() => {
     if (isDragging) {
       window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("mouseup", () => setIsDragging(false));
+      window.addEventListener("mouseup", handleMouseUp);
       window.addEventListener("touchmove", handleTouchMove);
-      window.addEventListener("touchend", () => setIsDragging(false));
+      window.addEventListener("touchend", handleMouseUp);
 
       return () => {
         window.removeEventListener("mousemove", handleMouseMove);
-        window.removeEventListener("mouseup", () => setIsDragging(false));
+        window.removeEventListener("mouseup", handleMouseUp);
         window.removeEventListener("touchmove", handleTouchMove);
-        window.removeEventListener("touchend", () => setIsDragging(false));
+        window.removeEventListener("touchend", handleMouseUp);
       };
     }
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove, handleTouchMove, handleMouseUp]);
 
   return (
     <motion.div
@@ -61,12 +67,14 @@ export const BeforeAfterSlider = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="my-16">
+      className="my-16"
+    >
       <div
         ref={containerRef}
         className="relative overflow-hidden rounded-2xl shadow-2xl cursor-col-resize select-none"
         onMouseDown={() => setIsDragging(true)}
-        onTouchStart={() => setIsDragging(true)}>
+        onTouchStart={() => setIsDragging(true)}
+      >
         {/* After Image (Full) */}
         <img
           src={afterImage}
@@ -78,7 +86,8 @@ export const BeforeAfterSlider = ({
         {/* Before Image (Clipped) */}
         <div
           className="absolute inset-0 overflow-hidden"
-          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}>
+          style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+        >
           <img
             src={beforeImage}
             alt="Before"
@@ -93,7 +102,8 @@ export const BeforeAfterSlider = ({
           style={{
             opacity: sliderPosition > 20 ? 1 : 0,
             transition: "opacity 0.2s",
-          }}>
+          }}
+        >
           <Caption className="text-neutral-200 font-medium">Before</Caption>
         </div>
 
@@ -103,21 +113,24 @@ export const BeforeAfterSlider = ({
           style={{
             opacity: sliderPosition < 80 ? 1 : 0,
             transition: "opacity 0.2s",
-          }}>
+          }}
+        >
           <Caption className="text-accent-400 font-medium">After</Caption>
         </div>
 
         {/* Slider Line & Handle */}
         <div
           className="absolute top-0 bottom-0 w-1 bg-white shadow-lg"
-          style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}>
+          style={{ left: `${sliderPosition}%`, transform: "translateX(-50%)" }}
+        >
           {/* Handle */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full shadow-xl flex items-center justify-center cursor-col-resize border-4 border-neutral-900">
             <svg
               className="w-6 h-6 text-neutral-900"
               fill="none"
               viewBox="0 0 24 24"
-              stroke="currentColor">
+              stroke="currentColor"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
