@@ -16,9 +16,6 @@ export const OptimizedImage = ({
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  // Debug logging
-  console.log("OptimizedImage rendering:", { src, alt, isLoaded, hasError });
-
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {/* Blur placeholder */}
@@ -35,14 +32,8 @@ export const OptimizedImage = ({
           opacity: isLoaded || hasError ? 1 : 0,
           transition: "opacity 0.6s ease-out",
         }}
-        onLoad={() => {
-          console.log("Image loaded:", src);
-          setIsLoaded(true);
-        }}
-        onError={(e) => {
-          console.error("Image error:", src, e);
-          setHasError(true);
-        }}
+        onLoad={() => setIsLoaded(true)}
+        onError={() => setHasError(true)}
         loading={priority ? "eager" : "lazy"}
       />
     </div>
