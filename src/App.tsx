@@ -17,8 +17,6 @@ import {
 // Lazy load route components for code-splitting
 const ComponentsDemo = lazy(() => import("./sections/ComponentsDemo"));
 const PremiumPortfolio = lazy(() => import("./sections/PremiumPortfolio"));
-const ProjectsShowcase = lazy(() => import("./sections/ProjectsShowcase"));
-const CaseStudy = lazy(() => import("./pages/CaseStudy"));
 
 // Home page with all sections
 const HomePage = () => (
@@ -98,14 +96,11 @@ const App = () => {
               <div className="min-h-screen bg-neutral-950 flex items-center justify-center">
                 <div className="text-neutral-500">Loading...</div>
               </div>
-            }
-          >
+            }>
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/demo" element={<ComponentsDemo />} />
               <Route path="/premium" element={<PremiumPortfolio />} />
-              <Route path="/projects" element={<ProjectsShowcase />} />
-              <Route path="/case-study/:projectId" element={<CaseStudy />} />
             </Routes>
           </Suspense>
         </Layout>

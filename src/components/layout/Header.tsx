@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { MdArrowOutward } from "react-icons/md";
 import { clsx } from "clsx";
 import Container from "./Container";
 
@@ -34,7 +35,6 @@ export const Header = () => {
   useEffect(() => {
     if (prevLocationRef.current !== location.pathname) {
       prevLocationRef.current = location.pathname;
-      // Schedule state update asynchronously to avoid cascading renders
       queueMicrotask(() => setIsMobileMenuOpen(false));
     }
   }, [location.pathname]);
@@ -54,152 +54,111 @@ export const Header = () => {
       className={clsx(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-neutral-950/80 backdrop-blur-xl border-b border-neutral-800/50"
-          : "bg-transparent",
-      )}
-    >
+          ? "bg-neutral-950/90 backdrop-blur-md border-b border-white/5 py-4"
+          : "bg-transparent py-6",
+      )}>
       <Container>
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
-            className="text-xl font-bold text-neutral-50 hover:text-accent-400 transition-colors"
-          >
-            Portfolio
+            className="text-2xl font-bold tracking-tighter text-white mix-blend-difference z-50">
+            RK.
           </Link>
 
-          {/* Desktop Navigation */}
-          <ul className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleNavClick(item.href);
-                  }}
-                  className="text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors relative group"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent-500 group-hover:w-full transition-all duration-300" />
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Desktop Navigation - Minimalist */}
+          <div className="hidden md:flex items-center gap-12">
+            <ul className="flex items-center gap-8">
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(item.href);
+                    }}
+                    className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          {/* CTA Button */}
-          <a
-            href="/#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("/#contact");
-            }}
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-950 bg-neutral-50 rounded-full hover:bg-accent-400 transition-colors"
-          >
-            Let's Talk
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </a>
+            {/* CTA Button - Minimalist Link */}
+            <a
+              href="/#contact"
+              onClick={(e) => {
+                e.preventDefault();
+                handleNavClick("/#contact");
+              }}
+              className="inline-flex items-center gap-2 text-sm font-medium text-white hover:text-neutral-300 transition-colors">
+              Let's Talk
+              <MdArrowOutward className="w-4 h-4" />
+            </a>
+          </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Minimalist Hamburger */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative w-10 h-10 flex items-center justify-center"
-            aria-label="Toggle menu"
-          >
-            <div className="relative w-6 h-5">
-              <span
-                className={clsx(
-                  "absolute left-0 w-full h-0.5 bg-neutral-50 transition-all duration-300",
-                  isMobileMenuOpen ? "top-2 rotate-45" : "top-0",
-                )}
-              />
-              <span
-                className={clsx(
-                  "absolute left-0 top-2 w-full h-0.5 bg-neutral-50 transition-all duration-300",
-                  isMobileMenuOpen && "opacity-0",
-                )}
-              />
-              <span
-                className={clsx(
-                  "absolute left-0 w-full h-0.5 bg-neutral-50 transition-all duration-300",
-                  isMobileMenuOpen ? "top-2 -rotate-45" : "top-4",
-                )}
-              />
-            </div>
+            className="md:hidden relative w-8 h-4 flex flex-col justify-between z-50"
+            aria-label="Toggle menu">
+            <span
+              className={clsx(
+                "w-full h-[2px] bg-white transition-all duration-300",
+                isMobileMenuOpen ? "rotate-45 translate-y-[7px]" : "",
+              )}
+            />
+            <span
+              className={clsx(
+                "w-full h-[2px] bg-white transition-all duration-300",
+                isMobileMenuOpen ? "-rotate-45 -translate-y-[7px]" : "",
+              )}
+            />
           </button>
         </nav>
       </Container>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Minimalist Full Screen */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="md:hidden bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-800"
-          >
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-neutral-950 z-40 flex items-center justify-center">
             <Container>
-              <ul className="py-6 space-y-4">
+              <ul className="flex flex-col items-center space-y-8">
                 {navItems.map((item, index) => (
                   <motion.li
                     key={item.href}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1 }}>
                     <a
                       href={item.href}
                       onClick={(e) => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block text-lg font-medium text-neutral-300 hover:text-neutral-50 transition-colors py-2"
-                    >
+                      className="text-4xl font-bold tracking-tighter text-white hover:text-neutral-400 transition-colors">
                       {item.label}
                     </a>
                   </motion.li>
                 ))}
                 <motion.li
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                >
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 }}>
                   <a
                     href="/#contact"
                     onClick={(e) => {
                       e.preventDefault();
                       handleNavClick("/#contact");
                     }}
-                    className="inline-flex items-center gap-2 mt-4 px-6 py-3 text-sm font-medium text-neutral-950 bg-neutral-50 rounded-full"
-                  >
+                    className="inline-flex items-center gap-2 mt-8 text-xl font-medium text-white/70">
                     Let's Talk
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
+                    <MdArrowOutward className="w-5 h-5" />
                   </a>
                 </motion.li>
               </ul>

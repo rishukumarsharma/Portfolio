@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { MdArrowForward } from "react-icons/md";
 import { cn } from "../../utils/cn";
 import { OptimizedImage } from "./OptimizedImage";
 import { getProjectPlaceholder } from "../../utils/placeholders";
@@ -83,21 +84,18 @@ export const ProjectCard = ({
         type: "spring",
         stiffness: 300,
         damping: 20,
-      }}
-    >
+      }}>
       {/* Image Container */}
       <div
         className={cn(
           "relative overflow-hidden bg-neutral-800",
           aspectStyles[aspectRatio],
-        )}
-      >
+        )}>
         {/* Use OptimizedImage with smart placeholder fallback */}
         <motion.div
           className="w-full h-full"
           animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        >
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}>
           <OptimizedImage
             src={image || getProjectPlaceholder(category)}
             alt={title}
@@ -110,8 +108,7 @@ export const ProjectCard = ({
           className="absolute inset-0 bg-neutral-950/70 flex items-center justify-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
+          transition={{ duration: 0.2 }}>
           <motion.div
             className="flex items-center gap-2 px-5 py-2.5 bg-white text-neutral-950 rounded-full font-medium text-sm"
             initial={{ y: 20, opacity: 0 }}
@@ -119,22 +116,9 @@ export const ProjectCard = ({
               y: isHovered ? 0 : 20,
               opacity: isHovered ? 1 : 0,
             }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
+            transition={{ duration: 0.3, delay: 0.1 }}>
             View Project
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            <MdArrowForward className="w-4 h-4" />
           </motion.div>
         </motion.div>
 
@@ -159,8 +143,7 @@ export const ProjectCard = ({
                 : size === "sm"
                   ? "text-base"
                   : "text-lg",
-            )}
-          >
+            )}>
             {title}
           </h3>
           {year && (
@@ -187,8 +170,7 @@ export const ProjectCard = ({
                 className={cn(
                   "px-2 py-1 text-xs text-neutral-400 bg-neutral-800/80 rounded",
                   "dark:bg-neutral-800 dark:text-neutral-400",
-                )}
-              >
+                )}>
                 {tag}
               </span>
             ))}

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { MdArrowOutward } from "react-icons/md";
 import { Container } from "../components/layout";
-import { Card } from "../components/ui";
 import { ScrollReveal } from "../components/animations";
 import projectsData from "../data/projects.json";
 
@@ -18,6 +18,7 @@ interface Project {
   featured: boolean;
   color: string;
   imageShowcase?: string[];
+  behanceUrl?: string;
 }
 
 const categories = [
@@ -30,7 +31,6 @@ const categories = [
 
 export const Work = () => {
   const [activeCategory, setActiveCategory] = useState("All");
-  // Cast to unknown first to handle the type difference
   const allProjects = projectsData as unknown as Project[];
 
   const filteredProjects =
@@ -39,63 +39,52 @@ export const Work = () => {
       : allProjects.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="work" className="py-32 bg-neutral-900">
+    <section id="work" className="py-32 bg-neutral-950">
       <Container>
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
+        {/* Minimalist Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <ScrollReveal animation="fadeUp">
-            <span className="inline-block text-sm font-medium text-accent-400 uppercase tracking-wider mb-4">
-              Selected Work
-            </span>
-          </ScrollReveal>
-
-          <ScrollReveal animation="fadeUp" delay={0.1}>
-            <h2 className="text-display-sm md:text-display-md font-bold text-neutral-50 mb-6">
-              Projects I'm proud of
+            <h2
+              className="text-[10vw] md:text-[6vw] leading-none font-bold tracking-tighter text-neutral-100"
+              style={{ fontFamily: "'Inter', sans-serif" }}>
+              SELECTED
+              <br />
+              WORK
             </h2>
           </ScrollReveal>
 
-          <ScrollReveal animation="fadeUp" delay={0.2}>
-            <p className="text-body-lg text-neutral-400">
-              A selection of my recent work spanning product design, web
-              development, and brand identity projects.
-            </p>
+          <ScrollReveal animation="fadeUp" delay={0.1}>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setActiveCategory(category)}
+                  className={`text-sm md:text-base transition-colors duration-300 ${
+                    activeCategory === category
+                      ? "text-white border-b border-white"
+                      : "text-neutral-500 hover:text-neutral-300"
+                  }`}>
+                  {category}
+                </button>
+              ))}
+            </div>
           </ScrollReveal>
         </div>
 
-        {/* Category Filter */}
-        <ScrollReveal animation="fadeUp" delay={0.3}>
-          <div className="flex flex-wrap gap-2 mb-12">
-            {categories.map((category) => (
-              <motion.button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
-                  activeCategory === category
-                    ? "bg-accent-500 text-white"
-                    : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
-                }`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {category}
-              </motion.button>
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {/* Projects Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Projects Grid - Minimalist List/Grid Hybrid */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-              >
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={index % 2 === 1 ? "md:mt-24" : ""}>
                 <ProjectCard project={project} />
               </motion.div>
             ))}
@@ -111,101 +100,60 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-  const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    navigate(`/case-study/${project.id}`);
+    if (project.behanceUrl) {
+      window.open(project.behanceUrl, "_blank");
+    } else {
+      navigate(`/case-study/${project.id}`);
+    }
   };
 
   return (
-    <Card
-      hover={false}
-      padding="none"
-      className="group overflow-hidden cursor-pointer"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+    <div
+      className="group cursor-pointer"
       onClick={handleClick}
-    >
-      {/* Thumbnail */}
-      <div className="relative aspect-16/10 overflow-hidden bg-neutral-800">
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
+      {/* Image Container */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-neutral-900 mb-6">
         <motion.div
-          className="absolute inset-0"
-          animate={{ scale: isHovered ? 1.05 : 1 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Project thumbnail image */}
-          <img
-            src={project.thumbnail}
-            alt={project.title}
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          {/* Subtle gradient overlay */}
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              background: `linear-gradient(135deg, ${project.color}80, transparent)`,
-            }}
-          />
-        </motion.div>
-
-        {/* Hover overlay */}
-        <motion.div
-          className="absolute inset-0 bg-neutral-950/60 flex items-center justify-center"
+          className="absolute inset-0 bg-neutral-800"
           initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
-          <motion.div
-            className="px-6 py-3 bg-white text-neutral-950 rounded-full font-medium text-sm flex items-center gap-2"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            View Project
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
+          animate={{ opacity: isHovered ? 0.4 : 0 }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.img
+          src={project.thumbnail}
+          alt={project.title}
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.5 }}
+        />
+
+        {/* Simple Arrow Overlay */}
+        <div className="absolute top-4 right-4 p-2 bg-white text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <MdArrowOutward className="w-5 h-5" />
+        </div>
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4 mb-3">
-          <h3 className="text-xl font-semibold text-neutral-50 group-hover:text-accent-400 transition-colors">
+      {/* Minimalist Info */}
+      <div className="flex flex-col gap-1 border-t border-neutral-800 pt-4">
+        <div className="flex justify-between items-baseline">
+          <h3 className="text-2xl font-bold text-neutral-100 group-hover:text-neutral-400 transition-colors">
             {project.title}
           </h3>
-          <span className="text-sm text-neutral-500 shrink-0">
+          <span className="text-sm font-mono text-neutral-500">
             {project.year}
           </span>
         </div>
-
-        <p className="text-sm text-neutral-400 mb-4">{project.subtitle}</p>
-
-        <div className="flex flex-wrap gap-2">
-          {project.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="px-2 py-1 text-xs text-neutral-400 bg-neutral-800 rounded"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
+        <p className="text-neutral-500 text-sm">
+          {project.category} — {project.tags[0]}
+        </p>
       </div>
-    </Card>
+    </div>
   );
 };
 

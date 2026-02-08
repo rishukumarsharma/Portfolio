@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import {
+  MdOutlineEmail,
+  MdOutlinePhone,
+  MdOutlineLocationOn,
+  MdCheckCircle,
+} from "react-icons/md";
 import { Container } from "../components/layout";
-import { Button, Input, Textarea } from "../components/ui";
+import { Button } from "../components/ui";
 import { ScrollReveal } from "../components/animations";
 import profileData from "../data/profile.json";
 
@@ -22,67 +28,19 @@ const contactInfo = [
     label: "Email",
     value: profileData.contact.email,
     href: `mailto:${profileData.contact.email}`,
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    ),
+    icon: <MdOutlineEmail className="w-5 h-5" />,
   },
   {
     label: "Phone",
     value: profileData.contact.phone,
     href: `tel:${profileData.contact.phone}`,
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-        />
-      </svg>
-    ),
+    icon: <MdOutlinePhone className="w-5 h-5" />,
   },
   {
     label: "Location",
     value: profileData.location,
     href: null,
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </svg>
-    ),
+    icon: <MdOutlineLocationOn className="w-5 h-5" />,
   },
 ];
 
@@ -126,8 +84,13 @@ export const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const subject = encodeURIComponent(`Portfolio Contact: ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+    );
+    const mailtoLink = `mailto:${profileData.contact.email}?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoLink;
 
     setIsSubmitting(false);
     setIsSubmitted(true);
@@ -148,133 +111,151 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-32 bg-neutral-950">
+    <section
+      id="contact"
+      className="py-32 bg-neutral-950 border-t border-neutral-900">
       <Container>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
-          {/* Left Column - Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-start">
+          {/* Left Column - Minimalist Info */}
           <div>
             <ScrollReveal animation="fadeUp">
-              <span className="inline-block text-sm font-medium text-accent-400 uppercase tracking-wider mb-4">
-                Get in Touch
-              </span>
-            </ScrollReveal>
-
-            <ScrollReveal animation="fadeUp" delay={0.1}>
-              <h2 className="text-display-sm md:text-display-md font-bold text-neutral-50 mb-6">
-                Let's work together
+              <h2
+                className="text-[10vw] lg:text-[6vw] leading-none font-bold tracking-tighter text-neutral-100 mb-12"
+                style={{ fontFamily: "'Inter', sans-serif" }}>
+                GET IN
+                <br />
+                TOUCH
               </h2>
             </ScrollReveal>
 
-            <ScrollReveal animation="fadeUp" delay={0.2}>
-              <p className="text-body-lg text-neutral-400 mb-12">
-                Have a project in mind? I'd love to hear about it. Send me a
-                message and let's create something amazing together.
+            <ScrollReveal animation="fadeUp" delay={0.1}>
+              <p className="text-xl md:text-2xl text-neutral-400 font-light mb-16 max-w-lg leading-relaxed">
+                Have a project in mind? Let's collaborate to build something
+                exceptional.
               </p>
             </ScrollReveal>
 
-            {/* Contact Info */}
-            <div className="space-y-6">
+            {/* Contact Info - Minimalist List */}
+            <div className="space-y-8">
               {contactInfo.map((item, index) => (
                 <ScrollReveal
                   key={item.label}
                   animation="fadeUp"
-                  delay={0.3 + index * 0.1}
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 flex items-center justify-center bg-neutral-800 rounded-xl text-accent-400">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <div className="text-sm text-neutral-500 mb-1">
-                        {item.label}
-                      </div>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-neutral-100 hover:text-accent-400 transition-colors"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <span className="text-neutral-100">{item.value}</span>
-                      )}
-                    </div>
+                  delay={0.2 + index * 0.1}>
+                  <div className="group">
+                    <span className="block text-sm text-neutral-500 mb-1 uppercase tracking-wider">
+                      {item.label}
+                    </span>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        className="text-2xl md:text-3xl text-neutral-200 hover:text-white transition-colors font-medium">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <span className="text-2xl md:text-3xl text-neutral-200 font-medium">
+                        {item.value}
+                      </span>
+                    )}
                   </div>
                 </ScrollReveal>
               ))}
             </div>
           </div>
 
-          {/* Right Column - Form */}
+          {/* Right Column - Minimalist Form */}
           <ScrollReveal animation="fadeLeft" delay={0.2}>
-            <div className="bg-neutral-900/50 backdrop-blur-sm rounded-2xl border border-neutral-800 p-8">
+            <div className="mt-8 lg:mt-24">
               {isSubmitted ? (
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center h-full py-12 text-center"
-                >
-                  <div className="w-16 h-16 flex items-center justify-center bg-success-500/20 rounded-full text-success-500 mb-6">
-                    <svg
-                      className="w-8 h-8"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
+                  className="p-12 border border-neutral-800 bg-neutral-900/30 text-center">
+                  <div className="inline-flex items-center justify-center p-3 bg-green-500/10 rounded-full text-green-500 mb-6">
+                    <MdCheckCircle className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-semibold text-neutral-50 mb-2">
-                    Message Sent!
+                  <h3 className="text-2xl font-bold text-neutral-100 mb-2">
+                    Message Sent
                   </h3>
                   <p className="text-neutral-400">
-                    Thanks for reaching out. I'll get back to you soon.
+                    Thank you. We'll be in touch shortly.
                   </p>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <Input
-                    label="Name"
-                    name="name"
-                    placeholder="John Doe"
-                    value={formData.name}
-                    onChange={handleChange}
-                    error={errors.name}
-                  />
+                <form onSubmit={handleSubmit} className="space-y-12">
+                  {/* Flushed Inputs for Minimalist Look */}
+                  <div className="space-y-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm text-neutral-500 uppercase tracking-wider">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="John Doe"
+                      className="w-full bg-transparent border-b border-neutral-800 py-4 text-xl text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-neutral-500 transition-colors"
+                    />
+                    {errors.name && (
+                      <p className="text-sm text-red-500 mt-1">{errors.name}</p>
+                    )}
+                  </div>
 
-                  <Input
-                    label="Email"
-                    name="email"
-                    type="email"
-                    placeholder="john@example.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    error={errors.email}
-                  />
+                  <div className="space-y-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm text-neutral-500 uppercase tracking-wider">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="john@example.com"
+                      className="w-full bg-transparent border-b border-neutral-800 py-4 text-xl text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-neutral-500 transition-colors"
+                    />
+                    {errors.email && (
+                      <p className="text-sm text-red-500 mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
 
-                  <Textarea
-                    label="Message"
-                    name="message"
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleChange}
-                    error={errors.message}
-                  />
+                  <div className="space-y-1">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm text-neutral-500 uppercase tracking-wider">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Tell me about your project..."
+                      className="w-full bg-transparent border-b border-neutral-800 py-4 text-xl text-neutral-100 placeholder-neutral-700 focus:outline-none focus:border-neutral-500 transition-colors resize-none"
+                    />
+                    {errors.message && (
+                      <p className="text-sm text-red-500 mt-1">
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
 
-                  <Button
-                    type="submit"
-                    fullWidth
-                    size="lg"
-                    isLoading={isSubmitting}
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                  </Button>
+                  <div className="pt-8">
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full md:w-auto rounded-none bg-white text-black hover:bg-neutral-200 border-0 uppercase tracking-wider font-semibold px-12 py-4"
+                      isLoading={isSubmitting}>
+                      {isSubmitting ? "Sending..." : "Send Message"}
+                    </Button>
+                  </div>
                 </form>
               )}
             </div>

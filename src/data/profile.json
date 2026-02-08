@@ -3,7 +3,7 @@
   "title": "UI/UX Designer",
   "tagline": "Crafting intuitive digital experiences for B2B and D2C products",
   "location": "Noida, Uttar Pradesh, India",
-  "profileImage": "/images/profile.jpg",
+  "profileImage": "./images/profile.jpg",
   "contact": {
     "phone": "7302418932",
     "email": "rishu3826@gmail.com",

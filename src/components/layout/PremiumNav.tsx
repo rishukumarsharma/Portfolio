@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { MdArrowForward } from "react-icons/md";
 import { Container } from "./Container";
 import { cn } from "../../utils/cn";
 
@@ -114,8 +115,7 @@ export const PremiumNav = () => {
           : "bg-transparent",
       )}
       initial="hidden"
-      animate="visible"
-    >
+      animate="visible">
       <Container>
         <nav className="flex items-center justify-between h-20">
           {/* Logo with fade-in animation */}
@@ -126,8 +126,7 @@ export const PremiumNav = () => {
             onClick={(e) => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-          >
+            }}>
             Portfolio
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent-400 to-accent-600 group-hover:w-full transition-all duration-300" />
           </motion.a>
@@ -135,8 +134,7 @@ export const PremiumNav = () => {
           {/* Desktop Navigation */}
           <motion.ul
             variants={navItemsContainerVariants}
-            className="hidden md:flex items-center gap-8"
-          >
+            className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <motion.li key={item.href} variants={navItemVariants}>
                 <a
@@ -145,8 +143,7 @@ export const PremiumNav = () => {
                     e.preventDefault();
                     handleNavClick(item.href);
                   }}
-                  className="text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors relative group"
-                >
+                  className="text-sm font-medium text-neutral-300 hover:text-neutral-50 transition-colors relative group">
                   {item.label}
                   {/* Slide-in underline effect */}
                   <motion.span
@@ -170,22 +167,9 @@ export const PremiumNav = () => {
             variants={navItemVariants}
             className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full hover:shadow-lg hover:shadow-accent-500/30 transition-all duration-200"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
+            whileTap={{ scale: 0.95 }}>
             Let's Talk
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            <MdArrowForward className="w-4 h-4" />
           </motion.a>
 
           {/* Mobile Menu Button */}
@@ -196,8 +180,7 @@ export const PremiumNav = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden relative w-10 h-10 flex items-center justify-center"
             aria-label="Toggle menu"
-            aria-expanded={isMobileMenuOpen}
-          >
+            aria-expanded={isMobileMenuOpen}>
             <div className="relative w-6 h-5">
               <motion.span
                 className="absolute left-0 w-full h-0.5 bg-neutral-50"
@@ -235,8 +218,7 @@ export const PremiumNav = () => {
             initial="hidden"
             animate="visible"
             exit="hidden"
-            className="md:hidden bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-800"
-          >
+            className="md:hidden bg-neutral-950/95 backdrop-blur-xl border-b border-neutral-800">
             <Container>
               <motion.ul className="py-6 space-y-1">
                 {navItems.map((item) => (
@@ -247,8 +229,7 @@ export const PremiumNav = () => {
                         e.preventDefault();
                         handleNavClick(item.href);
                       }}
-                      className="block px-4 py-3 text-lg font-medium text-neutral-300 hover:text-neutral-50 hover:bg-neutral-800/50 rounded-lg transition-all"
-                    >
+                      className="block px-4 py-3 text-lg font-medium text-neutral-300 hover:text-neutral-50 hover:bg-neutral-800/50 rounded-lg transition-all">
                       {item.label}
                     </a>
                   </motion.li>
@@ -260,8 +241,7 @@ export const PremiumNav = () => {
                       e.preventDefault();
                       handleNavClick("#contact");
                     }}
-                    className="block mt-4 px-4 py-3 text-center text-sm font-medium bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full"
-                  >
+                    className="block mt-4 px-4 py-3 text-center text-sm font-medium bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-full">
                     Let's Talk
                   </a>
                 </motion.li>

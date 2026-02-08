@@ -1,5 +1,14 @@
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  MdOutlineEmail,
+  MdOutlinePhone,
+  MdArrowForward,
+  MdCheckCircle,
+  MdFileDownload,
+  MdDescription,
+} from "react-icons/md";
+import { FaLinkedin, FaBehance } from "react-icons/fa";
 import { FloatingLabelInput } from "../components/ui/FloatingLabelInput";
 import { H2, Body, Caption } from "../components/ui";
 import { Container } from "../components/layout";
@@ -77,25 +86,25 @@ export const PremiumContact = () => {
 
   const contactOptions = [
     {
-      icon: "📧",
+      icon: <MdOutlineEmail />,
       label: "Email",
       value: profileData.contact.email,
       href: `mailto:${profileData.contact.email}`,
     },
     {
-      icon: "💼",
+      icon: <FaLinkedin />,
       label: "LinkedIn",
       value: "Connect with me",
       href: `https://${profileData.contact.linkedin}`,
     },
     {
-      icon: "🎨",
+      icon: <FaBehance />,
       label: "Behance",
       value: "View portfolio",
       href: `https://${profileData.contact.behance}`,
     },
     {
-      icon: "📞",
+      icon: <MdOutlinePhone />,
       label: "Phone",
       value: profileData.contact.phone,
       href: `tel:${profileData.contact.phone}`,
@@ -105,8 +114,7 @@ export const PremiumContact = () => {
   return (
     <section
       id="contact"
-      className="py-24 bg-neutral-950 relative overflow-hidden"
-    >
+      className="py-24 bg-neutral-950 relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-neutral-900 to-neutral-950" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-accent-500/10 rounded-full blur-3xl" />
@@ -190,8 +198,7 @@ export const PremiumContact = () => {
                     }
                     whileTap={
                       !isSubmitting && !isSuccess ? { scale: 0.98 } : {}
-                    }
-                  >
+                    }>
                     {/* Button background shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
 
@@ -201,8 +208,7 @@ export const PremiumContact = () => {
                           <svg
                             className="animate-spin h-5 w-5"
                             fill="none"
-                            viewBox="0 0 24 24"
-                          >
+                            viewBox="0 0 24 24">
                             <circle
                               className="opacity-25"
                               cx="12"
@@ -221,44 +227,13 @@ export const PremiumContact = () => {
                         </>
                       ) : isSuccess ? (
                         <>
-                          <motion.svg
-                            className="w-5 h-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 200,
-                              damping: 10,
-                            }}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M5 13l4 4L19 7"
-                            />
-                          </motion.svg>
+                          <MdCheckCircle className="w-5 h-5" />
                           Message Sent!
                         </>
                       ) : (
                         <>
                           Send Message
-                          <svg
-                            className="w-5 h-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
+                          <MdArrowForward className="w-5 h-5" />
                         </>
                       )}
                     </span>
@@ -272,8 +247,7 @@ export const PremiumContact = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.8 }}
-                      className="absolute inset-0 flex items-center justify-center bg-neutral-900/95 backdrop-blur-sm rounded-2xl"
-                    >
+                      className="absolute inset-0 flex items-center justify-center bg-neutral-900/95 backdrop-blur-sm rounded-2xl">
                       <div className="text-center">
                         <motion.div
                           className="text-6xl mb-4"
@@ -281,8 +255,7 @@ export const PremiumContact = () => {
                             rotate: [0, 10, -10, 0],
                             scale: [1, 1.2, 1],
                           }}
-                          transition={{ duration: 0.5 }}
-                        >
+                          transition={{ duration: 0.5 }}>
                           🎉
                         </motion.div>
                         <H2 className="text-2xl mb-2">Thank You!</H2>
@@ -313,8 +286,7 @@ export const PremiumContact = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1 }}
-                        whileHover={{ x: 4 }}
-                      >
+                        whileHover={{ x: 4 }}>
                         <div className="flex items-center gap-4">
                           <div className="text-3xl">{option.icon}</div>
                           <div className="flex-1">
@@ -323,24 +295,11 @@ export const PremiumContact = () => {
                             </Caption>
                             <Body
                               size="sm"
-                              className="text-neutral-500 group-hover:text-accent-400 transition-colors"
-                            >
+                              className="text-neutral-500 group-hover:text-accent-400 transition-colors">
                               {option.value}
                             </Body>
                           </div>
-                          <svg
-                            className="w-5 h-5 text-neutral-600 group-hover:text-accent-400 transition-colors"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M17 8l4 4m0 0l-4 4m4-4H3"
-                            />
-                          </svg>
+                          <MdArrowForward className="w-5 h-5 text-neutral-600 group-hover:text-accent-400 transition-colors" />
                         </div>
                       </motion.a>
                     ))}
@@ -357,11 +316,12 @@ export const PremiumContact = () => {
                     }}
                     className="w-full p-4 bg-gradient-to-r from-accent-500/10 to-accent-600/10 border border-accent-500/30 rounded-xl hover:border-accent-500 transition-all duration-200 group"
                     whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
+                    whileTap={{ scale: 0.98 }}>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="text-3xl">📄</div>
+                        <div className="text-3xl">
+                          <MdDescription />
+                        </div>
                         <div className="text-left">
                           <Caption className="text-accent-400 font-medium mb-1">
                             Resume / CV
@@ -371,20 +331,7 @@ export const PremiumContact = () => {
                           </Body>
                         </div>
                       </div>
-                      <motion.svg
-                        className="w-5 h-5 text-accent-400"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        whileHover={{ y: 2 }}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                      </motion.svg>
+                      <MdFileDownload className="w-5 h-5 text-accent-400" />
                     </div>
                   </motion.button>
                 </div>
