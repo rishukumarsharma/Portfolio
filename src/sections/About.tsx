@@ -127,7 +127,7 @@ export const About = () => {
               {/* Stats Row - Minimalist */}
               <ScrollReveal animation="fadeUp" delay={0.4}>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-neutral-800 pt-8">
-                  {stats.map((stat, i) => (
+                  {stats.map((stat) => (
                     <div key={stat.label} className="group">
                       <div
                         className="text-3xl lg:text-4xl font-bold text-neutral-100 mb-1 font-mono"
