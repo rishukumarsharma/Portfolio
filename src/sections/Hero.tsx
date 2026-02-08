@@ -37,7 +37,10 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[12vw] leading-none font-bold tracking-tighter text-white/90 text-center md:text-left"
-              style={{ fontFamily: "'Inter', sans-serif" }}>
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                textShadow: "0 15px 40px rgba(0,0,0,0.8)",
+              }}>
               CREATIVE
             </motion.h1>
 
@@ -58,7 +61,10 @@ export const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-[12vw] leading-none font-bold tracking-tighter text-white/90 text-center md:text-right mt-2 md:mt-[-2vw]"
-              style={{ fontFamily: "'Inter', sans-serif" }}>
+              style={{
+                fontFamily: "'Inter', sans-serif",
+                textShadow: "0 15px 40px rgba(0,0,0,0.8)",
+              }}>
               MINIMALIST
             </motion.h1>
           </div>
