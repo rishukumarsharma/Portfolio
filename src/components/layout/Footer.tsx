@@ -70,9 +70,9 @@ export const Footer = () => {
               with functionality.
             </h3>
             <a
-              href="mailto:hello@rishu.com"
+              href="mailto:rishu3826@gmail.com"
               className="inline-flex items-center gap-2 text-white border-b border-white pb-1 hover:text-neutral-300 hover:border-neutral-300 transition-colors">
-              hello@rishu.com <MdArrowOutward />
+              rishu3826@gmail.com <MdArrowOutward />
             </a>
           </div>
 
